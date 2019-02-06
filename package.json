@@ -1,6 +1,6 @@
 {
-  "name": "material-kit-react",
-  "version": "1.0.0",
+  "name": "math-plus",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@material-ui/icons": "1.0.0-beta.43",
