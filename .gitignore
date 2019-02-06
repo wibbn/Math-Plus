@@ -7,9 +7,9 @@ yarn-error.log*
 firebase-debug.log*
 
 # Кэши
-.firebase
+.firebase/
 .npm
-.idea
+.idea/
 
 # Временные данные
 pids
@@ -21,7 +21,7 @@ coverage
 .nyc_output
 
 # Нод модули
-node_modules
+node_modules/
 
 # dotenv environment variables file
 .env
