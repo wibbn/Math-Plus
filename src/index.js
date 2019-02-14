@@ -6,6 +6,7 @@ import indexRoutes from "routes/index.jsx";
 // import Config from 'config'
 
 import "assets/scss/material-kit-react.css";
+import "assets/scss/self_stile.css";
 
 var hist = createBrowserHistory();
 
