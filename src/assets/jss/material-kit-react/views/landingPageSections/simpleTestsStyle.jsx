@@ -2,8 +2,6 @@ import {section, titleContent} from "assets/jss/material-kit-react.jsx"
 
 const simpleTestsStyle = {
     titleContent: {
-        marginLeft: "30px",
-        textAlign: "left",
         ...titleContent
     },
     section: {

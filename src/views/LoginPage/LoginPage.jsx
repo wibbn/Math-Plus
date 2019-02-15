@@ -1,15 +1,15 @@
 import React from "react";
 import Config from "config"
-// material-ui components
+
 import withStyles from "material-ui/styles/withStyles";
 import InputAdornment from "material-ui/Input/InputAdornment";
-// @material-ui/icons
+
 import Email from "@material-ui/icons/Email";
 import LockOutline from "@material-ui/icons/LockOutline";
 import People from "@material-ui/icons/People";
-// core components
+
 import Header from "components/Header/Header.jsx";
-import LogInHeaderLinks from "components/Header/LogInHeaderLinks.jsx";
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -53,7 +53,7 @@ class LoginPage extends React.Component {
           absolute
           color="transparent"
           brand={Config.projectName}
-          rightLinks={<LogInHeaderLinks />}
+          rightLinks={<HeaderLinks authButton="register"/>}
           {...rest}
         />
         <div
