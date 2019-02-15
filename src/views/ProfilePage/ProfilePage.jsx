@@ -1,20 +1,20 @@
 import React from "react";
 import Config from "config"
-// nodejs library that concatenates classes
+
 import classNames from "classnames";
-// material-ui components
+
 import withStyles from "material-ui/styles/withStyles";
-// @material-ui/icons
+
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
-// core components
+
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import IconButton from "components/CustomButtons/IconButton.jsx";
-import LandingHeaderLinks from "components/Header/LandingHeaderLinks.jsx";
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 
@@ -47,7 +47,7 @@ class ProfilePage extends React.Component {
         <Header
           color="transparent"
           brand={Config.projectName}
-          rightLinks={<LandingHeaderLinks />}
+          rightLinks={<HeaderLinks authButton="login"/>}
           fixed
           changeColorOnScroll={{
             height: 200,

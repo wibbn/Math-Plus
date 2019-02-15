@@ -1,8 +1,11 @@
 {
-  "firestore": {
-    "rules": "firefiles/firestore.rules",
-    "indexes": "firefiles/firestore.indexes.json"
-  },
+//  "firestore": {
+//    "rules": "firefiles/firestore.rules",
+//    "indexes": "firefiles/firestore.indexes.json"
+//  },
+//  "storage": {
+//    "rules": "firefiles/storage.rules"
+//  },
   "hosting": {
     "public": "build",
     "ignore": [
@@ -10,8 +13,5 @@
       "**/.*",
       "**/node_modules/**"
     ]
-  },
-  "storage": {
-    "rules": "firefiles/torage.rules"
   }
 }

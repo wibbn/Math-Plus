@@ -160,12 +160,12 @@ const title = {
 
 const titleContent = {
     color: titleColor,
-    margin: "20px 0 20px 30px",
+    margin: "20px 0 20px 0",
     textAlign: "left",
     textDecoration: "none",
     fontWeight: "700",
     fontFamily: `"Roboto Slab", "Times New Roman", serif`,//`"Helvetica"`,
-    minHeight: "32px",
+    minHeight: "32px"
 }
 
 const description = {
@@ -190,6 +190,11 @@ const cardSubtitle = {
 
 const section = {
     padding: "50px 20px"
+}
+
+const hidenBlock = {
+    // height: "400px",
+    overflow: "hidden"
 }
 
 export {
@@ -234,5 +239,6 @@ export {
     cardSubtitle,
     makeButtonShadow,
     makeRGBA,
-    secondaryBoxShadow
+    secondaryBoxShadow,
+    hidenBlock
 }

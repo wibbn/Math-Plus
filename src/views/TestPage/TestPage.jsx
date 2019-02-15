@@ -1,16 +1,16 @@
 import React from "react"
 import Config from "config"
 import classNames from "classnames"
-// data
+
 import themes from "../data/themes"
 import tests from "../data/tests"
-// material-ui components
+
 import withStyles from "material-ui/styles/withStyles"
 import InputAdornment from "material-ui/Input/InputAdornment"
 import { Link } from "react-router-dom"
-// core components
+
 import Header from "components/Header/Header.jsx"
-import LandingHeaderLinks from "components/Header/LandingHeaderLinks.jsx"
+import HeaderLinks from "components/Header/HeaderLinks.jsx"
 import Footer from "components/Footer/Footer.jsx"
 import GridContainer from "components/Grid/GridContainer.jsx"
 import GridItem from "components/Grid/GridItem.jsx"
@@ -51,7 +51,7 @@ class TestPage extends React.Component {
                     color="transparent"
                     routes={dashboardRoutes}
                     brand={Config.projectName}
-                    rightLinks={<LandingHeaderLinks />}
+                    rightLinks={<HeaderLinks authButton="login"/>}
                     fixed
                     changeColorOnScroll={{
                         height: 50,

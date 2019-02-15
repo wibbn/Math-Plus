@@ -19,9 +19,10 @@ pids
 lib-cov
 coverage
 .nyc_output
+build
 
 # Нод модули
 node_modules/
 
-# dotenv environment variables file
+# прочее
 .env

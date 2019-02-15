@@ -1,4 +1,4 @@
-import {section, titleContent, description} from "assets/jss/material-kit-react.jsx"
+import {section, titleContent, description, hidenBlock} from "assets/jss/material-kit-react.jsx"
 
 const themesStyle = {
     flexCell: {
@@ -56,6 +56,9 @@ const themesStyle = {
     },
     description: {
         ...description
+    },
+    hidenBlock: {
+        ...hidenBlock
     }
 }
 export default themesStyle

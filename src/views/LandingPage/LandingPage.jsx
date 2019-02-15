@@ -1,21 +1,21 @@
 import React from "react"
 import Config from "config.js"
-// nodejs library that concatenates classes
+
 import classNames from "classnames"
-// material-ui components
+
 import withStyles from "material-ui/styles/withStyles"
-// core components
+
 import Header from "components/Header/Header.jsx"
 import Footer from "components/Footer/Footer.jsx"
 import GridContainer from "components/Grid/GridContainer.jsx"
 import GridItem from "components/Grid/GridItem.jsx"
 import Button from "components/CustomButtons/Button.jsx"
-import LandingHeaderLinks from "components/Header/LandingHeaderLinks.jsx"
+import HeaderLinks from "components/Header/HeaderLinks.jsx"
 import Parallax from "components/Parallax/Parallax.jsx"
 
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx"
 import "./LandingPage.css"
-// Sections for this page
+
 import SimpleTestsSection from "./Sections/SimpleTestsSection"
 import PastYearsSection from "./Sections/PastYearsSection"
 import ThemesSection from "./Sections/ThemesSection"
@@ -31,7 +31,7 @@ class LandingPage extends React.Component {
                     color="transparent"
                     routes={dashboardRoutes}
                     brand={Config.projectName}
-                    rightLinks={<LandingHeaderLinks />}
+                    rightLinks={<HeaderLinks authButton="login"/>}
                     fixed
                     changeColorOnScroll={{
                         height: 200,
