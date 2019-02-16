@@ -1,15 +1,11 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
-// material-ui components
-import withStyles from "material-ui/styles/withStyles";
 
-// core components
+import withStyles from "material-ui/styles/withStyles";
 import parallaxStyle from "assets/jss/material-kit-react/components/parallaxStyle.jsx";
 
-const num = 3
+const num = 3;
 
 class Parallax extends React.Component {
   constructor(props) {

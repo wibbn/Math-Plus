@@ -17,8 +17,8 @@ const themes = [
     { name: "Стереометрическая задача", mark: 2, level: "B", succ: "4", url: "#"},
     { name: "Неравенства", mark: 2, level: "B", succ: "12", url: "#"},
 
-    { name: "Планиметрическая задача", mark: 3, level: "B", succ: "0.4", url: "#"},
-    { name: "Финансовая математика", mark: 3, level: "B", succ: "3", url: "#"},
+    { name: "Планиметрическая задача", mark: 3, level: "C", succ: "0.4", url: "#"},
+    { name: "Финансовая математика", mark: 3, level: "C", succ: "3", url: "#"},
     { name: "Задача с параметром", mark: 4, level: "C", succ: "0.7", url: "#"},
     { name: "Числа и их свойства", mark: 4, level: "C", succ: "0.4", url: "#"},
 ]

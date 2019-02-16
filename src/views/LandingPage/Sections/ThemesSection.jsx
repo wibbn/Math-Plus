@@ -1,11 +1,12 @@
-import React from "react"
-import withStyles from "material-ui/styles/withStyles"
+import React from "react";
+import withStyles from "material-ui/styles/withStyles";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import RadianStatus from "components/RadianStatus/RadianStatus"
+import RadianStatus from "components/RadianStatus/RadianStatus";
+import HiddenBlock from "components/HiddenBlock/HiddenBlock";
 import themesStyle from "assets/jss/material-kit-react/views/landingPageSections/themesStyle";
-import themes from "../../data/themes"
-import classNames from "classnames"
+import themes from "../../data/themes";
+import classNames from "classnames";
 
 
 class ThemesSection extends React.Component {
@@ -13,7 +14,7 @@ class ThemesSection extends React.Component {
         const {classes} = this.props
         return (
             <div className={classes.section}>
-                <div className={classes.hidenBlock}>
+                <HiddenBlock zipSize={500} fullSize={2000}>
                     <GridContainer>
                         <GridItem xs={12} sm={12} md={9}>
                             <h2 className={classes.titleContent}>Подготовка по темам</h2>
@@ -54,7 +55,7 @@ class ThemesSection extends React.Component {
                         </GridItem>
                         )}
                     </GridContainer>
-                </div>
+                </HiddenBlock>
             </div>
         )
     }

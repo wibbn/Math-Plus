@@ -59,7 +59,7 @@ function HeaderLinks({ ...props }) {
                 />
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Link to={"/landing"}>
+                <Link to={"#"}>
                     <Button
                         color="transparent"
                         target="_blank"
