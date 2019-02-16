@@ -17,7 +17,7 @@ function HeaderLinks({ ...props }) {
     const { classes, authButton } = props;
     const authBtns = {
         login:
-            (<Link to={"login-page"}>
+            (<Link to={"/login"}>
                 <Tooltip title= "или создать аккаунт"
                          placement={window.innerWidth > 959 ? "top" : "left"}
                          classes={{ tooltip: classes.tooltip }}>
@@ -30,7 +30,7 @@ function HeaderLinks({ ...props }) {
                 </Tooltip>
             </Link>),
         register:
-            (<Link to={"login-page"}>
+            (<Link to={"/register"}>
                 <Button
                     target="_blank"
                     className={classes.registerNavLink}
@@ -40,6 +40,7 @@ function HeaderLinks({ ...props }) {
             </Link>)
     }
     return (
+        
         <List className={classes.list}>
             <ListItem className={classes.listItem}>
                 <CustomDropdownLink

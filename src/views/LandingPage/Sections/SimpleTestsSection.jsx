@@ -22,26 +22,17 @@ class SimpleTestsSection extends React.Component {
                     </GridItem>
                 </GridContainer>
                 <GridContainer>
-                    <GridItem xs={12} sm={6} md={2} key={0}>
-                        <Link to={"test-page"}>
-                            <Button
-                                size="sm"
-                                outline
-                                color="primary"
-                                fullWidth>
-                                {1} Вариант
-                            </Button>
-                        </Link>
-                    </GridItem>
-                    {[...Array(17)].map((x, i) =>
+                    {[...Array(18)].map((x, i) =>
                         <GridItem xs={12} sm={6} md={2} key={i+1}>
-                            <Button
-                                size="sm"
-                                outline
-                                color="primary"
-                                fullWidth>
-                                {i+2} Вариант
-                            </Button>
+                            <Link to={`test/${i+1}`}>
+                                <Button
+                                    size="sm"
+                                    outline
+                                    color="primary"
+                                    fullWidth>
+                                    {i+1} Вариант
+                                </Button>
+                            </Link>
                         </GridItem>
                     )}
                 </GridContainer>

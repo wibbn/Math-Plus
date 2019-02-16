@@ -14,7 +14,6 @@ import HeaderLinks from "components/Header/HeaderLinks.jsx"
 import Parallax from "components/Parallax/Parallax.jsx"
 
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx"
-import "./LandingPage.css"
 
 import SimpleTestsSection from "./Sections/SimpleTestsSection"
 import PastYearsSection from "./Sections/PastYearsSection"
@@ -22,7 +21,7 @@ import ThemesSection from "./Sections/ThemesSection"
 
 const dashboardRoutes = []
 
-class LandingPage extends React.Component {
+class Landing extends React.Component {
     render() {
         const { classes, ...rest } = this.props;
         return (
@@ -54,7 +53,7 @@ class LandingPage extends React.Component {
                                 href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                                 target="_blank"
                                 rel="noopener noreferrer">
-                                <i className="fas fa-play"/>Смотреть тизер
+                                <i className="fas fa-play" style={{paddingRight: "10px"}}/>Смотреть тизер
                             </Button>
                         </GridItem>
                     </GridContainer>
@@ -73,4 +72,4 @@ class LandingPage extends React.Component {
     }
 }
 
-export default withStyles(landingPageStyle)(LandingPage);
+export default withStyles(landingPageStyle)(Landing);

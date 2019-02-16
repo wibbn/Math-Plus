@@ -26,7 +26,7 @@ const math = window.matchMedia('(min-width: 3800px)').matches;
 
 const dashboardRoutes = []
 
-class TestPage extends React.Component {
+class Test extends React.Component {
     constructor(props) {
         super(props)
         // we use this to make the card to appear after the page has been rendered
@@ -45,6 +45,7 @@ class TestPage extends React.Component {
     }
     render() {
         const { classes, ...rest } = this.props
+        const id = this.props.match.params.id;
         return (
             <div>
                 <Header
@@ -60,19 +61,18 @@ class TestPage extends React.Component {
                     {...rest}
                 />
                 <div
-                    className={classes.pageHeader}
-                    style={{
-                        backgroundColor: "#bbb",
-                        backgroundSize: "cover",
-                        backgroundPosition: "top center"
-                    }}
-                >
+                className={classes.pageHeader}
+                style={{
+                    backgroundColor: "#bbb",
+                    backgroundSize: "cover",
+                    backgroundPosition: "top center"
+                }}>
                     <div className={classes.cont}>
                         <div className={classNames(classes.main, classes.mainRaised)}>
                             <div className={classes.container}>
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={12}>
-                                        <h2 className={classes.titleContent}>Вариант №1</h2>
+                                        <h2 className={classes.titleContent}>{`Вариант №${id}`}</h2>
                                         <h5 className={classes.description}>
                                             Вариант схожий с настоящим экзаменационным тестом. В поля ответов вписывать то, что требуется в задаче. При наличие ответов вписывать через ";". На часть С принимаются только ответы (без решений) На решение теста отводится 3 часа 55 минут. Успепхов!
                                         </h5>
@@ -110,4 +110,4 @@ class TestPage extends React.Component {
     }
 }
 
-export default withStyles(testPageStyle)(TestPage)
+export default withStyles(testPageStyle)(Test)
