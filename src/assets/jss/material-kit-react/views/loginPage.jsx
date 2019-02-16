@@ -61,8 +61,7 @@ const signupPageStyle = {
     fontSize: "20px"
   },
   divider: {
-    marginTop: "30px",
-    marginBottom: "0px",
+    margin: "10px 0 0 0",
     textAlign: "center",
     fontWeight: "300",
     color: "#999"
