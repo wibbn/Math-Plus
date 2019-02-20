@@ -1,17 +1,23 @@
 import React from "react";
+
 import withStyles from "material-ui/styles/withStyles";
+
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import RadianStatus from "components/RadianStatus/RadianStatus";
 import HiddenBlock from "components/HiddenBlock/HiddenBlock";
+
 import themesStyle from "assets/jss/material-kit-react/views/landingPageSections/themesStyle";
-import themes from "../../data/themes";
 import classNames from "classnames";
+
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 
 class ThemesSection extends React.Component {
     render() {
-        const {classes} = this.props
+        const {classes, themes} = this.props;
         return (
             <div className={classes.section}>
                 <HiddenBlock zipSize={500} fullSize={2000}>
@@ -34,11 +40,11 @@ class ThemesSection extends React.Component {
                                 <GridItem xs={4} sm={2} md={2} className={classes.flexCell}> Решили </GridItem>
                             </GridContainer>
                         </GridItem>
-                        { themes.map((theme, i) =>
-                        <GridItem key={i} md={12}>
+                        {themes &&  themes.map(theme =>
+                        <GridItem key={theme.id} md={12}>
                             <GridContainer className={classNames(classes.tableRow, classes.geg)}>
                                 <GridItem xs={12} sm={6} md={6}>
-                                    <h5 className={classes.numberName}>{i+1 + ". " + theme.name}</h5>
+                                    <h5 className={classes.numberName}>{theme.id + ". " + theme.name}</h5>
                                 </GridItem>
                                 <GridItem xs={4} sm={2} md={2} className={classes.flexCell}>
                                     {theme.mark + " б"}
@@ -61,4 +67,18 @@ class ThemesSection extends React.Component {
     }
 }
 
-export default withStyles(themesStyle)(ThemesSection)
+const mapStateToProps = (state) => {
+    // console.log(state.firestore);
+    return {
+        themes: state.firestore.ordered.themes
+    }
+}
+
+export default compose(
+    withStyles(themesStyle),
+    connect(mapStateToProps),
+    firestoreConnect([{
+        collection: 'themes',
+        orderBy: 'id'
+    }])
+)(ThemesSection)

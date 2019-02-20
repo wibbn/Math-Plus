@@ -1,5 +1,5 @@
 import React from "react"
-import Config from "config.js"
+import Config from '../../config/projectInfo';
 
 import classNames from "classnames"
 
@@ -30,7 +30,7 @@ class Landing extends React.Component {
                     color="transparent"
                     routes={dashboardRoutes}
                     brand={Config.projectName}
-                    rightLinks={<HeaderLinks authButton="login"/>}
+                    rightLinks={<HeaderLinks signin={false}/>}
                     fixed
                     changeColorOnScroll={{
                         height: 200,

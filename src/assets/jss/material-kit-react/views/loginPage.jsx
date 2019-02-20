@@ -1,4 +1,4 @@
-import { container } from "assets/jss/material-kit-react.jsx";
+import { container, dangerColor } from "assets/jss/material-kit-react.jsx";
 
 
 
@@ -65,6 +65,12 @@ const signupPageStyle = {
     textAlign: "center",
     fontWeight: "300",
     color: "#999"
+  },
+  authError: {
+    margin: "10px 0 0 0",
+    textAlign: "center",
+    fontWeight: "300",
+    color: dangerColor
   },
   cardFooter: {
     paddingTop: "0rem",

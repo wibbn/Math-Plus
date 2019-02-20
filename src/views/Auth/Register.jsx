@@ -1,11 +1,10 @@
 import React from 'react';
-import Config from 'config'
+import { Redirect } from 'react-router-dom';
+import Config from '../../config/projectInfo';
 
 import withStyles from 'material-ui/styles/withStyles';
 import InputAdornment from 'material-ui/Input/InputAdornment';
-
 import { Email, LockOutline, People } from '@material-ui/icons';
-
 import Header from 'components/Header/Header.jsx';
 import HeaderLinks from 'components/Header/HeaderLinks.jsx';
 import Footer from 'components/Footer/Footer.jsx';
@@ -18,56 +17,43 @@ import CardBody from 'components/Card/CardBody.jsx';
 import CardHeader from 'components/Card/CardHeader.jsx';
 import CardFooter from 'components/Card/CardFooter.jsx';
 import CustomInput from 'components/CustomInput/CustomInput.jsx';
-
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
+import imageSm from 'assets/img/classSm.jpg';
 
-import imageLg from 'assets/img/classLg.jpg';
-import imageSm from 'assets/img/classSsm.jpg'
-
-const math = window.matchMedia('(min-width: 3800px)').matches;
+import { connect } from 'react-redux';
+import { signUp } from '../../store/actions/auth'
+import { compose } from 'redux';
 
 class LogIn extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cardAnimaton: 'cardHidden',
-            email: '',
-            pass: '',
-            hendl: '',
-            confpass: ''
-        };
-    }
+    state = {
+        email: '',
+        password: '',
+        username: ''
+    };
+
     handleChange = (e) => {
         this.setState({[e.target.id] : e.target.value});
-    }
+    };
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-    }
-    componentDidMount() {
-        // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-        setTimeout(
-            function() {
-                this.setState({ cardAnimaton: '' });
-            }.bind(this),
-            700
-        );
-    }
+        this.props.signUp(this.state);
+    };
     render() {
-        const { classes, ...rest } = this.props;
+        const { classes, auth, authError, ...rest } = this.props;
+        if (auth.uid) return <Redirect to='/' />;
         return (
             <div>
                 <Header
                     absolute
                     color='transparent'
                     brand={Config.projectName}
-                    rightLinks={<HeaderLinks authButton='login'/>}
+                    rightLinks={<HeaderLinks signin={false}/>}
                     {...rest}
                 />
                 <div
                     className={classes.pageHeader}
                     style={{
-                        backgroundImage: math ? 'url(' + imageLg + ')' : 'url(' + imageSm + ')',
+                        backgroundImage: `url(${imageSm})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'top center'
                     }}
@@ -75,7 +61,7 @@ class LogIn extends React.Component {
                     <div className={classes.container}>
                         <GridContainer justify='center'>
                             <GridItem xs={12} sm={8} md={4}>
-                                <Card className={classes[this.state.cardAnimaton]}>
+                                <Card>
                                     <form className={classes.form} onSubmit={this.handleSubmit}>
                                         <CardHeader color='primary' className={classes.cardHeader}>
                                             <h4>Регистрация</h4>
@@ -109,8 +95,8 @@ class LogIn extends React.Component {
                                         <CardBody>
                                             <p className={classes.divider}>Стандартная регистрация</p>
                                             <CustomInput
-                                                labelText='Хэндл'
-                                                id='hendl'
+                                                labelText='Имя пользователя'
+                                                id='username'
                                                 formControlProps={{
                                                     fullWidth: true
                                                 }}
@@ -142,23 +128,7 @@ class LogIn extends React.Component {
                                             />
                                             <CustomInput
                                                 labelText='Пароль'
-                                                id='pass'
-                                                formControlProps={{
-                                                    fullWidth: true
-                                                }}
-                                                inputProps={{
-                                                    type: 'password',
-                                                    onChange: this.handleChange,
-                                                    endAdornment: (
-                                                        <InputAdornment position='end'>
-                                                            <LockOutline className={classes.inputIconsColor}/>
-                                                        </InputAdornment>
-                                                    )
-                                                }}
-                                            />
-                                            <CustomInput
-                                                labelText='Еще раз'
-                                                id='confpass'
+                                                id='password'
                                                 formControlProps={{
                                                     fullWidth: true
                                                 }}
@@ -173,6 +143,7 @@ class LogIn extends React.Component {
                                                 }}
                                             />
                                             <button style={{display:'none'}}></button>
+                                            {authError ? <p className={classes.authError}>Введены некорректные данные</p> : null}
                                         </CardBody>
                                         <CardFooter className={classes.cardFooter}>
                                             <Button simple color='primary' size='lg' onClick={this.handleSubmit}>
@@ -191,4 +162,20 @@ class LogIn extends React.Component {
     }
 }
 
-export default withStyles(loginPageStyle)(LogIn);
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth,
+        authError: state.auth.authError
+    }
+};
+
+const mapDispatchToProps = (dispatch)=> {
+    return {
+        signUp: (creds) => dispatch(signUp(creds))
+    }
+};
+
+export default compose(
+    withStyles(loginPageStyle),
+    connect(mapStateToProps, mapDispatchToProps)
+)(LogIn)

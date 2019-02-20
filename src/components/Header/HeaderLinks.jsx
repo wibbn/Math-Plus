@@ -1,44 +1,21 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
 import withStyles from "material-ui/styles/withStyles";
 import List from "material-ui/List";
 import ListItem from "material-ui/List/ListItem";
-import Tooltip from "material-ui/Tooltip";
+import Avatar from 'material-ui/Avatar/Avatar'
 
 import { Class, Inbox, AccountCircle, Work } from "@material-ui/icons";
-
 import CustomDropdownLink from "components/CustomDropdown/CustomDropdownLink.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
+import AuthBtn from './AuthButtons';
+
 function HeaderLinks({ ...props }) {
-    const { classes, authButton } = props;
-    const authBtns = {
-        login:
-            (<Link to={"/login"}>
-                <Tooltip title= "или создать аккаунт"
-                         placement={window.innerWidth > 959 ? "top" : "left"}
-                         classes={{ tooltip: classes.tooltip }}>
-                    <Button
-                        target="_blank"
-                        className={classes.registerNavLink}
-                        color="secondary">
-                        <AccountCircle className={classes.icons} />Войти
-                    </Button>
-                </Tooltip>
-            </Link>),
-        register:
-            (<Link to={"/register"}>
-                <Button
-                    target="_blank"
-                    className={classes.registerNavLink}
-                    color="secondary">
-                    <AccountCircle className={classes.icons} /> Зарегистрироваться
-                </Button>
-            </Link>)
-    }
+    const { classes, signin } = props;
+
     return (
         
         <List className={classes.list}>
@@ -80,7 +57,7 @@ function HeaderLinks({ ...props }) {
                 </Link>
             </ListItem>
             <ListItem className={classes.listItem}>
-                {authButton === "login" ? authBtns.login : authBtns.register}
+                <AuthBtn signin = {signin} />
             </ListItem>
         </List>
     );

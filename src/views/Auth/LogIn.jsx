@@ -1,5 +1,6 @@
 import React from 'react';
-import Config from 'config'
+import { Redirect } from 'react-router-dom';
+import Config from '../../config/projectInfo';
 
 import withStyles from 'material-ui/styles/withStyles';
 import InputAdornment from 'material-ui/Input/InputAdornment';
@@ -21,54 +22,46 @@ import CustomInput from 'components/CustomInput/CustomInput.jsx';
 
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
 
-import imageLg from 'assets/img/classLg.jpg';
-import imageSm from 'assets/img/classSsm.jpg'
+import imageSm from 'assets/img/classSm.jpg';
 
-const math = window.matchMedia('(min-width: 3800px)').matches;
+import { connect } from 'react-redux';
+import { signIn } from '../../store/actions/auth'
+import { compose } from 'redux';
 
 class LogIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardAnimaton: 'cardHidden',
       email: '',
-      pass: ''
+      password: ''
     };
-  }
+  };
 
   handleChange = (e) => {
     this.setState({[e.target.id] : e.target.value});
-  }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
-  }
+    this.props.signIn(this.state);
+  };
 
-  componentDidMount() {
-    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    setTimeout(
-      function() {
-        this.setState({ cardAnimaton: '' });
-      }.bind(this),
-      700
-    );
-  }
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, authError, auth, ...rest } = this.props;
+    if (auth.uid) return <Redirect to='/' />;
     return (
       <div>
         <Header
           absolute
           color='transparent'
           brand={Config.projectName}
-          rightLinks={<HeaderLinks authButton='register'/>}
+          rightLinks={<HeaderLinks signin={true}/>}
           {...rest}
         />
         <div
           className={classes.pageHeader}
           style={{
-            backgroundImage: math ? 'url(' + imageLg + ')' : 'url(' + imageSm + ')',
+            backgroundImage: `url(${imageSm})`,
             backgroundSize: 'cover',
             backgroundPosition: 'top center'
           }}
@@ -76,7 +69,7 @@ class LogIn extends React.Component {
           <div className={classes.container}>
             <GridContainer justify='center'>
               <GridItem xs={12} sm={8} md={4}>
-                <Card className={classes[this.state.cardAnimaton]}>
+                <Card>
                   <form className={classes.form} onSubmit={this.handleSubmit}>
                     <CardHeader color='primary' className={classes.cardHeader}>
                       <h4>Вход</h4>
@@ -127,7 +120,7 @@ class LogIn extends React.Component {
                       />
                       <CustomInput
                         labelText='Пароль'
-                        id='pass'
+                        id='password'
                         formControlProps={{
                           fullWidth: true
                         }}
@@ -142,6 +135,7 @@ class LogIn extends React.Component {
                         }}
                       />
                       <button style={{display:'none'}}></button>
+                      {authError ? <p className={classes.authError}>{authError}</p> : null}
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color='primary' size='lg' onClick={this.handleSubmit}>
@@ -157,7 +151,23 @@ class LogIn extends React.Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
-export default withStyles(loginPageStyle)(LogIn);
+const mapStateToProps = (state) => {
+  return{
+    authError: state.auth.authError,
+    auth: state.firebase.auth
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+};
+
+export default compose(
+    withStyles(loginPageStyle),
+    connect(mapStateToProps, mapDispatchToProps)
+)(LogIn);

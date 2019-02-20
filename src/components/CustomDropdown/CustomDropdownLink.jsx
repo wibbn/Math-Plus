@@ -110,8 +110,10 @@ class CustomDropdownLink extends React.Component {
                                             );
                                         }
                                         return (
-                                            <Link to={prop.url}
-                                                  key={key}>
+                                            <Link
+                                                to={prop.url}
+                                                key={key}
+                                                onClick={prop.onClick}>
                                                 <MenuItem
                                                     onClick={this.handleClose}
                                                     className={dropdownItem}>

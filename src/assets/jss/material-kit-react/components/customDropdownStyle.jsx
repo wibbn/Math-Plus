@@ -27,6 +27,12 @@ const customDropdownStyle = theme => ({
     backgroundColor: "#fff",
     backgroundClip: "padding-box"
   },
+  userPic: {
+    margin: "5px 5px 5px 10px",
+    '& svg': {
+      background: '#2f2f2f'
+    }
+  },
   menuList: {
     padding: "0"
   },
