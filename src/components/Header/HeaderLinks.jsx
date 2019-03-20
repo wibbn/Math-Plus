@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import withStyles from "material-ui/styles/withStyles";
 import List from "material-ui/List";
 import ListItem from "material-ui/List/ListItem";
-import Avatar from 'material-ui/Avatar/Avatar'
 
-import { Class, Inbox, AccountCircle, Work } from "@material-ui/icons";
+import { Class, Inbox, Work } from "@material-ui/icons";
 import CustomDropdownLink from "components/CustomDropdown/CustomDropdownLink.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";

@@ -29,6 +29,10 @@ const customDropdownStyle = theme => ({
   },
   userPic: {
     margin: "5px 5px 5px 10px",
+    height: '40px',
+    width: '40px',
+    overflow: 'hidden',
+    borderRadius: '4px',
     '& svg': {
       background: '#2f2f2f'
     }

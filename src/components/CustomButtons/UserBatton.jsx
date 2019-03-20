@@ -60,12 +60,12 @@ class UserBatton extends React.Component {
         return (
             <Manager>
                 <Target>
-                    <Avatar
+                    <div
                         className={classes.userPic}
                         onClick={this.handleClick}
                     >
                         {picChild}
-                    </Avatar>
+                    </div>
                 </Target>
                 <Popper
                     placement={
