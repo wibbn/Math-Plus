@@ -40,7 +40,7 @@ class ThemesSection extends React.Component {
                                 <GridItem xs={4} sm={2} md={2} className={classes.flexCell}> Решили </GridItem>
                             </GridContainer>
                         </GridItem>
-                        {themes &&  themes.map(theme =>
+                        {themes && themes.map(theme =>
                         <GridItem key={theme.id} md={12}>
                             <GridContainer className={classNames(classes.tableRow, classes.geg)}>
                                 <GridItem xs={12} sm={6} md={6}>

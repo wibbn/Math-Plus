@@ -13,9 +13,6 @@ import Paper from "material-ui/Paper";
 import Grow from "material-ui/transitions/Grow";
 import Divider from "material-ui/Divider";
 
-import Button from "components/CustomButtons/Button.jsx";
-import Avatar from 'material-ui/Avatar/Avatar';
-
 import customDropdownStyle from "assets/jss/material-kit-react/components/customDropdownStyle.jsx";
 
 class UserBatton extends React.Component {
@@ -38,20 +35,13 @@ class UserBatton extends React.Component {
         const {
             classes,
             dropdownList,
-            buttonProps,
             dropup,
             dropdownHeader,
-            caret,
             hoverColor,
             left,
             rtlActive,
             picChild
         } = this.props;
-        const caretClasses = classNames({
-            [classes.caret]: true,
-            [classes.caretActive]: open,
-            [classes.caretRTL]: rtlActive
-        });
         const dropdownItem = classNames({
             [classes.dropdownItem]: true,
             [classes[hoverColor + "Hover"]]: true,

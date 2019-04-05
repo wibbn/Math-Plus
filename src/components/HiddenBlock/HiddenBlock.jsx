@@ -16,7 +16,6 @@ class HiddenBlock extends React.Component {
 
     render() {
         const {
-            classes,
             zipSize,
             fullSize,
             children

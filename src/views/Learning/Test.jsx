@@ -21,16 +21,34 @@ const dashboardRoutes = [];
 
 class Test extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            tasks: []
+        };
     }
 
-    componentWillMount() {
-        this
+    renderTasks = async() => {
+        const id = Number(this.props.match.params.id);
+        let ts = [];
+        firebase.firestore().collection('tasks').where('test_num', '==', id).orderBy('id').get().then(function(querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    // console.log(doc.data().task);
+                    ts.push(doc.data().task);
+                })
+        });
+
+        this.setState({tasks: ts})
+    };
+
+    componentDidMount() {
+        this.renderTasks();
     }
 
     render() {
         const { classes, ...rest } = this.props;
-        const id = this.props.match.params.id;
+        const id = Number(this.props.match.params.id);
+        const tasks = this.state.tasks;
+        // console.log(id);
         return (
             <div>
                 <Header
@@ -62,7 +80,13 @@ class Test extends React.Component {
                                             Вариант схожий с настоящим экзаменационным тестом. В поля ответов вписывать то, что требуется в задаче. При наличие ответов вписывать через ';'. На часть С принимаются только ответы (без решений) На решение теста отводится 3 часа 55 минут. Успепхов!
                                         </h5>
                                     </GridItem>
-                                    {/*firebase.firestore().collection('tasks').where('test_num', '==', id).orderBy('id')).map((x) =>
+                                    {console.log('this.state.tasks = ', this.state.tasks)}
+                                    {console.log('this.state.tasks[0] = ', this.state.tasks[0])}
+                                    {this.state.tasks.forEach(function (x) {
+                                        console.log(x);
+                                    })}
+                                    {/*{this.state.tasks.map(x => console.log(x))}*/}
+                                    {/*this.state.tasks && */this.state.tasks.map(  x =>
                                         <GridItem xs={12} sm={12} md={12}>
                                             <div className={classes.task}>
                                                 <h3 className={classes.taskNum}>Задание {x.id+1} <h5 className={classes.taskName}>{x.name}</h5></h3>
@@ -79,11 +103,10 @@ class Test extends React.Component {
                                                             type: 'text',
                                                         }}
                                                     />
-                                                    {}
                                                 </div>
                                             </div>
                                         </GridItem>
-                                    )*/}
+                                    )}
                                 </GridContainer>
                             </div>
                         </div>
@@ -96,7 +119,6 @@ class Test extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log('che ', lol.id);
     return {
         themes: state.firestore.ordered.themes,
         tasks: state.firestore.ordered.themes
