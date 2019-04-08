@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import { AccountCircle } from "@material-ui/icons";
+import { AccountCircleOutlined } from "@material-ui/icons";
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
 import { signOut } from "../../store/actions/auth";
 
-import Button from "components/CustomButtons/Button.jsx";
-import Snackbar from 'material-ui/Snackbar/Snackbar';
+import Button from "@material-ui/core/Button";
+import Snackbar from '@material-ui/core/Snackbar';
 import UserButton from '../../components/CustomButtons/UserBatton'
-import withStyles from "material-ui/styles/withStyles";
+import withStyles from "@material-ui/core/styles/withStyles";
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
 import ReactHtmlParser from 'react-html-parser';
 
-var jdenticon = require("jdenticon");
+let jdenticon = require("jdenticon");
 
 
 class AuthBtn extends React.Component {
@@ -34,7 +34,7 @@ class AuthBtn extends React.Component {
     };
 
     render() {
-        const { auth, signin, classes, signOut } = this.props;
+        const { auth, signIn, classes, signOut } = this.props;
         const { open, vertical, horizontal } = this.state;
 
         const userOnClick = () => {
@@ -54,22 +54,24 @@ class AuthBtn extends React.Component {
                         {'name': 'Выйти', 'url': '#', 'onClick': userOnClick}
                     ]}
                     />
-                ) : ((signin) ? (
+                ) : ((signIn) ? (
                     <Link to={"/register"}>
                         <Button
-                            // target="_blank"
                             className={classes.registerNavLink}
-                            color="secondary">
-                            <AccountCircle className={classes.icons}/> Зарегистрироваться
+                            color="secondary"
+                            variant="raised"
+                        >
+                            <AccountCircleOutlined className={classes.icons}/> Зарегистрироваться
                         </Button>
                     </Link>
                 ) : (
                     <Link to={"/login"}>
                         <Button
-                        // target="_blank"
                         className={classes.registerNavLink}
-                        color="secondary">
-                            <AccountCircle className={classes.icons}/>Войти
+                        color="secondary"
+                        variant="raised"
+                        >
+                            <AccountCircleOutlined className={classes.icons}/>Войти
                         </Button>
                     </Link>
                 ))}

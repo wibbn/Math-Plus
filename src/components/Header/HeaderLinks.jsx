@@ -1,32 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import withStyles from "material-ui/styles/withStyles";
-import List from "material-ui/List";
-import ListItem from "material-ui/List/ListItem";
+import withStyles from "@material-ui/core/styles/withStyles";
+import List from "@material-ui/core/List";
+import Button from "@material-ui/core/Button";
+import ListItem from "@material-ui/core/ListItem";
 
-import { Class, Inbox, Work } from "@material-ui/icons";
-import CustomDropdownLink from "components/CustomDropdown/CustomDropdownLink.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+import { ClassOutlined, InboxOutlined, WorkOutline } from "@material-ui/icons";
+
+import DropdownLink from "components/CustomDropdown/Dropdown.jsx";
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
 import AuthBtn from './AuthButtons';
 
 function HeaderLinks({ ...props }) {
-    const { classes, signin } = props;
+    const { classes, signIn } = props;
 
     return (
         
         <List className={classes.list}>
             <ListItem className={classes.listItem}>
-                <CustomDropdownLink
+                <DropdownLink
                     buttonText="Темы"
                     buttonProps={{
                         className: classes.navLink,
                         color: "transparent"
                     }}
-                    buttonIcon={Class}
-                    hoverColor="secondary"
+                    buttonIcon={ClassOutlined}
                     dropdownList={[
                         {'name': 'Ссылка 1', 'url': '#'},
                         {'name': 'Ссылка 2', 'url': '#'},
@@ -38,25 +38,21 @@ function HeaderLinks({ ...props }) {
             <ListItem className={classes.listItem}>
                 <Link to={"#"}>
                     <Button
-                        color="transparent"
-                        target="_blank"
                         className={classes.navLink}>
-                        <Inbox className={classes.icons} /> Варианты
+                        <InboxOutlined className={classes.icons} /> Варианты
                     </Button>
                 </Link>
             </ListItem>
             <ListItem className={classes.listItem}>
                 <Link to={"#"}>
                     <Button
-                        color="transparent"
-                        target="_blank"
                         className={classes.navLink}>
-                        <Work className={classes.icons} /> Материалы
+                        <WorkOutline className={classes.icons} /> Материалы
                     </Button>
                 </Link>
             </ListItem>
             <ListItem className={classes.listItem}>
-                <AuthBtn signin = {signin} />
+                <AuthBtn signIn = {signIn} />
             </ListItem>
         </List>
     );

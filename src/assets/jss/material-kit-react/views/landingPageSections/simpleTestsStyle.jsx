@@ -1,4 +1,4 @@
-import {section, titleContent} from "assets/jss/material-kit-react.jsx"
+import {section, titleContent} from "assets/jss/material-kit-react.jsx";
 
 const simpleTestsStyle = {
     titleContent: {
@@ -12,6 +12,9 @@ const simpleTestsStyle = {
     },
     bigButton: {
         marginTop: "25px"
+    },
+    gridItem: {
+        padding: "15px"
     }
-}
-export default simpleTestsStyle
+};
+export default simpleTestsStyle;

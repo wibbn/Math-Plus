@@ -4,17 +4,16 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Manager, Target, Popper } from "react-popper";
 
-import withStyles from "@material-ui/core/styles/withStyles";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Paper from "@material-ui/core/Paper";
 import Grow from "@material-ui/core/Grow";
 import Divider from "@material-ui/core/Divider";
+import Button from "@material-ui/core/Button";
 
-import customDropdownStyle from "assets/jss/material-kit-react/components/customDropdownStyle.jsx";
 
-class UserBatton extends React.Component {
+class DropdownLink extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,28 +31,39 @@ class UserBatton extends React.Component {
     render() {
         const { open } = this.state;
         const {
-            classes,
+            buttonText,
+            buttonIcon,
             dropdownList,
+            buttonProps,
             dropUp,
             dropdownHeader,
-            left,
-            picChild
+            left
         } = this.props;
+
         return (
             <Manager>
                 <Target>
-                    <div
-                        className={classes.userPic}
-                        onClick={this.handleClick}
-                    >
-                        {picChild}
-                    </div>
+                    <Button
+                        aria-label="DropDownButton"
+                        aria-haspopup="true"
+                        {...buttonProps}
+                        onClick={this.handleClick}>
+                        {buttonIcon !== undefined ? <this.props.buttonIcon /> : null}
+                        {buttonText !== undefined ? buttonText : ''}
+                    </Button>
                 </Target>
                 <Popper
                     placement={
-                        dropUp
-                            ? left ? "top-end" : "top-start"
-                            : left ? "bottom-end" : "bottom-start"
+                        dropUp ?
+                            left ?
+                                "top-end"
+                                :
+                                "top-start"
+                            :
+                            left ?
+                                "bottom-end"
+                                :
+                                "bottom-start"
                     }
                     eventsEnabled={open}
                 >
@@ -82,10 +92,7 @@ class UserBatton extends React.Component {
                                             );
                                         }
                                         return (
-                                            <Link
-                                                to={prop.url}
-                                                key={key}
-                                                onClick={prop.onClick}>
+                                            <Link to={prop.url} key={key} onClick={prop.onClick}>
                                                 <MenuItem onClick={this.handleClose}>
                                                     {prop.name}
                                                 </MenuItem>
@@ -102,7 +109,7 @@ class UserBatton extends React.Component {
     }
 }
 
-UserBatton.propTypes = {
+DropdownLink.propTypes = {
     buttonText: PropTypes.node,
     buttonIcon: PropTypes.func,
     dropdownList: PropTypes.array,
@@ -112,4 +119,4 @@ UserBatton.propTypes = {
     left: PropTypes.bool
 };
 
-export default withStyles(customDropdownStyle)(UserBatton);
+export default DropdownLink;

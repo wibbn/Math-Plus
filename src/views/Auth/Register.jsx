@@ -2,21 +2,22 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Config from '../../config/projectInfo';
 
-import withStyles from 'material-ui/styles/withStyles';
-import InputAdornment from 'material-ui/Input/InputAdornment';
-import { Email, LockOutline, People } from '@material-ui/icons';
+import withStyles from '@material-ui/core/styles/withStyles';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+
+import {AlternateEmail, PeopleOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
 import Header from 'components/Header/Header.jsx';
 import HeaderLinks from 'components/Header/HeaderLinks.jsx';
 import Footer from 'components/Footer/Footer.jsx';
 import GridContainer from 'components/Grid/GridContainer.jsx';
 import GridItem from 'components/Grid/GridItem.jsx';
-import Button from 'components/CustomButtons/Button.jsx';
 import IconButton from 'components/CustomButtons/IconButton.jsx';
 import Card from 'components/Card/Card.jsx';
 import CardBody from 'components/Card/CardBody.jsx';
 import CardHeader from 'components/Card/CardHeader.jsx';
 import CardFooter from 'components/Card/CardFooter.jsx';
-import CustomInput from 'components/CustomInput/CustomInput.jsx';
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
 import imageSm from 'assets/img/classSm.jpg';
 
@@ -28,12 +29,18 @@ class LogIn extends React.Component {
     state = {
         email: '',
         password: '',
-        username: ''
+        username: '',
+        showPassword: false
     };
 
     handleChange = (e) => {
         this.setState({[e.target.id] : e.target.value});
     };
+
+    handleClickShowPassword = () => {
+        this.setState({showPassword: !this.state.showPassword});
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signUp(this.state);
@@ -47,7 +54,7 @@ class LogIn extends React.Component {
                     absolute
                     color='transparent'
                     brand={Config.projectName}
-                    rightLinks={<HeaderLinks signin={false}/>}
+                    rightLinks={<HeaderLinks signIn={false}/>}
                     {...rest}
                 />
                 <div
@@ -94,59 +101,65 @@ class LogIn extends React.Component {
                                         </CardHeader>
                                         <CardBody>
                                             <p className={classes.divider}>Стандартная регистрация</p>
-                                            <CustomInput
-                                                labelText='Имя пользователя'
-                                                id='username'
-                                                formControlProps={{
-                                                    fullWidth: true
-                                                }}
-                                                inputProps={{
-                                                    type: 'text',
+                                            <TextField
+                                                label="Имя пользователя"
+                                                type="text"
+                                                id="username"
+                                                InputProps={{
                                                     onChange: this.handleChange,
                                                     endAdornment: (
                                                         <InputAdornment position='end'>
-                                                            <People className={classes.inputIconsColor}/>
+                                                            <PeopleOutlined className={classes.inputIconsColor}/>
                                                         </InputAdornment>
-                                                    )
+                                                    ),
                                                 }}
+                                                fullWidth={true}
+                                                margin="normal"
+                                                variant="outlined"
                                             />
-                                            <CustomInput
-                                                labelText='Электронная почта'
-                                                id='email'
-                                                formControlProps={{
-                                                    fullWidth: true
-                                                }}
-                                                inputProps={{
-                                                    type: 'email',
+                                            <TextField
+                                                label="Электронная почта"
+                                                type="email"
+                                                id="email"
+                                                InputProps={{
                                                     onChange: this.handleChange,
                                                     endAdornment: (
-                                                        <InputAdornment position='end'>
-                                                            <Email className={classes.inputIconsColor}/>
+                                                        <InputAdornment position="end">
+                                                            <AlternateEmail className={classes.inputIconsColor} />
                                                         </InputAdornment>
-                                                    )
+                                                    ),
                                                 }}
+                                                fullWidth={true}
+                                                margin="normal"
+                                                variant="outlined"
                                             />
-                                            <CustomInput
-                                                labelText='Пароль'
-                                                id='password'
-                                                formControlProps={{
-                                                    fullWidth: true
-                                                }}
-                                                inputProps={{
-                                                    type: 'password',
+                                            <TextField
+                                                label="Пароль"
+                                                type={this.state.showPassword ? 'text' : 'password'}
+                                                id="password"
+                                                InputProps={{
                                                     onChange: this.handleChange,
                                                     endAdornment: (
-                                                        <InputAdornment position='end'>
-                                                            <LockOutline className={classes.inputIconsColor}/>
+                                                        <InputAdornment position="end" onClick={this.handleClickShowPassword}>
+                                                            {console.log(this.state)}
+                                                            {this.state.showPassword ?
+                                                                <VisibilityOffOutlined className={classes.inputIconsColor} />
+                                                                :
+                                                                <VisibilityOutlined className={classes.inputIconsColor} />
+                                                            }
                                                         </InputAdornment>
-                                                    )
+                                                    ),
                                                 }}
+                                                fullWidth={true}
+                                                margin="normal"
+                                                variant="outlined"
                                             />
+
                                             <button style={{display:'none'}}></button>
                                             {authError ? <p className={classes.authError}>Введены некорректные данные</p> : null}
                                         </CardBody>
                                         <CardFooter className={classes.cardFooter}>
-                                            <Button simple color='primary' size='lg' onClick={this.handleSubmit}>
+                                            <Button color='primary' size='large' onClick={this.handleSubmit}>
                                                 Начать
                                             </Button>
                                         </CardFooter>

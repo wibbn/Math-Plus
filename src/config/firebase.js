@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth'
 
-var config = {
+const config = {
     apiKey: "AIzaSyB1T3WFrT3mkGQtAwbS1FaG97Wv3guJrMM",
     authDomain: "mathplus-0.firebaseapp.com",
     databaseURL: "https://mathplus-0.firebaseio.com",

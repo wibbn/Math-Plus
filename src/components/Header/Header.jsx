@@ -5,13 +5,13 @@ import classNames from "classnames";
 
 import PropTypes from "prop-types";
 
-import withStyles from "material-ui/styles/withStyles";
-import AppBar from "material-ui/AppBar";
-import Toolbar from "material-ui/Toolbar";
-import IconButton from "material-ui/IconButton";
-import Button from "material-ui/Button";
-import Hidden from "material-ui/Hidden";
-import Drawer from "material-ui/Drawer";
+import withStyles from "@material-ui/core/styles/withStyles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import Hidden from "@material-ui/core/Hidden";
+import Drawer from "@material-ui/core/Drawer";
 
 import Menu from "@material-ui/icons/Menu";
 
@@ -55,20 +55,20 @@ class Header extends React.Component {
             brand,
             fixed,
             absolute
-        } = this.props
+        } = this.props;
         const appBarClasses = classNames({
             [classes.appBar]: true,
             [classes[color]]: color,
             [classes.absolute]: absolute,
             [classes.fixed]: fixed
-        })
+        });
         const brandComponent = (
             <Link to={"/"}>
                 <Button href="#" className={classes.title}>
                     {brand}
                 </Button>
             </Link>
-        )
+        );
         return (
             <AppBar className={appBarClasses}>
                 <Toolbar className={classes.container}>

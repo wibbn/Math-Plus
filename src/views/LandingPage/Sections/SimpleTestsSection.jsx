@@ -1,14 +1,14 @@
 import React from "react"
-import withStyles from "material-ui/styles/withStyles"
+import withStyles from "@material-ui/core/styles/withStyles"
+import Button from "@material-ui/core/Button"
 import GridContainer from "components/Grid/GridContainer.jsx"
 import GridItem from "components/Grid/GridItem.jsx"
-import Button from "components/CustomButtons/Button"
 import simpleTestsStyle from "assets/jss/material-kit-react/views/landingPageSections/simpleTestsStyle"
 import { Link } from "react-router-dom"
 
 class SimpleTestsSection extends React.Component {
     render() {
-        const {classes} = this.props
+        const {classes} = this.props;
         return (
             <div className={classes.section}>
                 <GridContainer>
@@ -23,13 +23,14 @@ class SimpleTestsSection extends React.Component {
                 </GridContainer>
                 <GridContainer>
                     {[...Array(18)].map((x, i) =>
-                        <GridItem xs={12} sm={6} md={2} key={i+1}>
+                        <GridItem xs={12} sm={6} md={2} key={i+1} className={classes.gridItem}>
                             <Link to={`test/${i+1}`}>
                                 <Button
-                                    size="sm"
-                                    outline
+                                    size="small"
+                                    variant="outlined"
                                     color="primary"
-                                    fullWidth>
+                                    fullWidth={true}
+                                >
                                     {i+1} Вариант
                                 </Button>
                             </Link>
@@ -37,8 +38,13 @@ class SimpleTestsSection extends React.Component {
                     )}
                 </GridContainer>
                 <GridContainer>
-                    <GridItem xs={12} sm={12} md={3}>
-                        <Button size="lg" color="secondary" fullWidth className={classes.bigButton}>
+                    <GridItem xs={12} sm={12} md={4}>
+                        <Button
+                            size="large"
+                            color="secondary"
+                            variant="raised"
+                            fullWidth={true}
+                            className={classes.bigButton}>
                             Случайный вариант
                         </Button>
                     </GridItem>
