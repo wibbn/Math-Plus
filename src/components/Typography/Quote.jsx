@@ -1,9 +1,9 @@
 import React from "react";
-import { withStyles } from "material-ui";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-import typographyStyle from "assets/jss/material-kit-react/components/typographyStyle.jsx";
+import {withStyles} from "@material-ui/core/styles";
+
+import typographyStyle from "../../assets/jss/material-kit-react/components/typographyStyle";
 
 function Quote({ ...props }) {
   const { classes, text, author } = props;

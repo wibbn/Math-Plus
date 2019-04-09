@@ -3,23 +3,23 @@ import Config from '../../config/projectInfo';
 
 import classNames from "classnames"
 
-import withStyles from "@material-ui/core/styles/withStyles"
 import Button from '@material-ui/core/Button'
 
-import Header from "components/Header/Header.jsx"
-import Footer from "components/Footer/Footer.jsx"
-import GridContainer from "components/Grid/GridContainer.jsx"
-import GridItem from "components/Grid/GridItem.jsx"
-import HeaderLinks from "components/Header/HeaderLinks.jsx"
-import Parallax from "components/Parallax/Parallax.jsx"
+import { MuiThemeProvider, withStyles } from "@material-ui/core/styles";
 
-import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx"
-import {DangerPrimary, colorToPrimary} from "../../assets/jss/material-kit-react.jsx"
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
+import GridContainer from "../../components/Grid/GridContainer"
+import GridItem from "../../components/Grid/GridItem"
+import HeaderLinks from "../../components/Header/HeaderLinks"
+import Parallax from "../../components/Parallax/Parallax"
+
+import landingPageStyle from "../../assets/jss/material-kit-react/views/landingPage"
+import {colorToPrimary} from "../../assets/jss/material-kit-react"
 
 import SimpleTestsSection from "./Sections/SimpleTestsSection"
 import PastYearsSection from "./Sections/PastYearsSection"
 import ThemesSection from "./Sections/ThemesSection"
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 
 const dashboardRoutes = [];
 
@@ -52,11 +52,9 @@ class Landing extends React.Component {
                             <MuiThemeProvider theme={colorToPrimary('#e53935')}>
                                 <Button
                                     color="primary"
-                                    variant="raised"
+                                    variant="contained"
                                     size="large"
                                     href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                                    // target="_blank"
-                                    // rel="noopener noreferrer"
                                     >
                                     <i className="fas fa-play" style={{paddingRight: "10px"}}/>Смотреть тизер
                                 </Button>

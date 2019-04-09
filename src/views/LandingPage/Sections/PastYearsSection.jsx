@@ -1,11 +1,12 @@
 import React from "react"
-import withStyles from "@material-ui/core/styles/withStyles"
-import Button from '@material-ui/core/Button'
 
-import GridContainer from "components/Grid/GridContainer.jsx"
-import GridItem from "components/Grid/GridItem.jsx"
-import pastYearsStyle from "assets/jss/material-kit-react/views/landingPageSections/pastYearsStyle"
+import {withStyles} from "@material-ui/core/styles";
 
+import {Button} from '@material-ui/core'
+
+import GridContainer from "../../../components/Grid/GridContainer"
+import GridItem from "../../../components/Grid/GridItem"
+import pastYearsStyle from "../../../assets/jss/material-kit-react/views/landingPageSections/pastYearsStyle"
 
 class PastYearsSection extends React.Component {
     render() {
@@ -29,7 +30,8 @@ class PastYearsSection extends React.Component {
                                 <Button
                                     key = {i}
                                     size="large"
-                                    color="primary">
+                                    color="primary"
+                                >
                                     {2018-i}
                                 </Button>
                             )}

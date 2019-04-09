@@ -1,9 +1,9 @@
 import React from "react";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
-import { withStyles } from "material-ui";
 
-import typographyStyle from "assets/jss/material-kit-react/components/typographyStyle.jsx";
+import {withStyles} from "@material-ui/core/styles";
+
+import typographyStyle from "../../assets/jss/material-kit-react/components/typographyStyle";
 
 function Small({ ...props }) {
   const { classes, children } = props;

@@ -1,5 +1,8 @@
 import React from "react";
-import { withStyles, Grid } from "material-ui";
+
+import { Grid } from "@material-ui/core";
+
+import {withStyles} from "@material-ui/core/styles";
 
 const style = {
   grid: {

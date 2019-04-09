@@ -1,29 +1,32 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { signUp } from '../../store/actions/auth'
 import Config from '../../config/projectInfo';
 
-import withStyles from '@material-ui/core/styles/withStyles';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button'
-
 import {AlternateEmail, PeopleOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
-import Header from 'components/Header/Header.jsx';
-import HeaderLinks from 'components/Header/HeaderLinks.jsx';
-import Footer from 'components/Footer/Footer.jsx';
-import GridContainer from 'components/Grid/GridContainer.jsx';
-import GridItem from 'components/Grid/GridItem.jsx';
-import IconButton from 'components/CustomButtons/IconButton.jsx';
-import Card from 'components/Card/Card.jsx';
-import CardBody from 'components/Card/CardBody.jsx';
-import CardHeader from 'components/Card/CardHeader.jsx';
-import CardFooter from 'components/Card/CardFooter.jsx';
-import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
-import imageSm from 'assets/img/classSm.jpg';
 
-import { connect } from 'react-redux';
-import { signUp } from '../../store/actions/auth'
-import { compose } from 'redux';
+import {withStyles} from "@material-ui/core/styles";
+
+import {InputAdornment, TextField, Button} from '@material-ui/core';
+
+import Header from '../../components/Header/Header';
+import HeaderLinks from '../../components/Header/HeaderLinks';
+import Footer from '../../components/Footer/Footer';
+import GridContainer from '../../components/Grid/GridContainer';
+import GridItem from '../../components/Grid/GridItem';
+import IconButton from '../../components/CustomButtons/IconButton';
+import Card from '../../components/Card/Card';
+import CardBody from '../../components/Card/CardBody';
+import CardHeader from '../../components/Card/CardHeader';
+import CardFooter from '../../components/Card/CardFooter';
+
+import loginPageStyle from '../../assets/jss/material-kit-react/views/loginPage';
+
+import imageSm from '../../assets/img/classSm.jpg';
+
 
 class LogIn extends React.Component {
     state = {
@@ -36,15 +39,14 @@ class LogIn extends React.Component {
     handleChange = (e) => {
         this.setState({[e.target.id] : e.target.value});
     };
-
     handleClickShowPassword = () => {
         this.setState({showPassword: !this.state.showPassword});
     };
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signUp(this.state);
     };
+
     render() {
         const { classes, auth, authError, ...rest } = this.props;
         if (auth.uid) return <Redirect to='/' />;
@@ -141,7 +143,6 @@ class LogIn extends React.Component {
                                                     onChange: this.handleChange,
                                                     endAdornment: (
                                                         <InputAdornment position="end" onClick={this.handleClickShowPassword}>
-                                                            {console.log(this.state)}
                                                             {this.state.showPassword ?
                                                                 <VisibilityOffOutlined className={classes.inputIconsColor} />
                                                                 :
@@ -155,7 +156,7 @@ class LogIn extends React.Component {
                                                 variant="outlined"
                                             />
 
-                                            <button style={{display:'none'}}></button>
+                                            <button style={{display:'none'}}/>
                                             {authError ? <p className={classes.authError}>Введены некорректные данные</p> : null}
                                         </CardBody>
                                         <CardFooter className={classes.cardFooter}>

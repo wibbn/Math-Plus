@@ -2,8 +2,9 @@ import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
-import withStyles from "material-ui/styles/withStyles";
-import parallaxStyle from "assets/jss/material-kit-react/components/parallaxStyle.jsx";
+import {withStyles} from "@material-ui/core/styles";
+
+import parallaxStyle from "../../assets/jss/material-kit-react/components/parallaxStyle";
 
 const num = 3;
 

@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
-import { AccountCircleOutlined } from "@material-ui/icons";
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import ReactHtmlParser from 'react-html-parser';
 
 import { signOut } from "../../store/actions/auth";
 
-import Button from "@material-ui/core/Button";
-import Snackbar from '@material-ui/core/Snackbar';
-import UserButton from '../../components/CustomButtons/UserBatton'
-import withStyles from "@material-ui/core/styles/withStyles";
-import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
+import { AccountCircleOutlined } from "@material-ui/icons";
 
-import ReactHtmlParser from 'react-html-parser';
+import {withStyles} from "@material-ui/core/styles";
+
+import { Button, Snackbar } from "@material-ui/core";
+
+import UserButton from '../CustomButtons/UserBatton';
+import headerLinksStyle from "../../assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
 let jdenticon = require("jdenticon");
 
@@ -59,7 +60,7 @@ class AuthBtn extends React.Component {
                         <Button
                             className={classes.registerNavLink}
                             color="secondary"
-                            variant="raised"
+                            variant="contained"
                         >
                             <AccountCircleOutlined className={classes.icons}/> Зарегистрироваться
                         </Button>
@@ -69,7 +70,7 @@ class AuthBtn extends React.Component {
                         <Button
                         className={classes.registerNavLink}
                         color="secondary"
-                        variant="raised"
+                        variant="contained"
                         >
                             <AccountCircleOutlined className={classes.icons}/>Войти
                         </Button>

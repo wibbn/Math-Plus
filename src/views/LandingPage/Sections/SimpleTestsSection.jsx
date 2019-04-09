@@ -1,10 +1,14 @@
 import React from "react"
-import withStyles from "@material-ui/core/styles/withStyles"
-import Button from "@material-ui/core/Button"
-import GridContainer from "components/Grid/GridContainer.jsx"
-import GridItem from "components/Grid/GridItem.jsx"
-import simpleTestsStyle from "assets/jss/material-kit-react/views/landingPageSections/simpleTestsStyle"
 import { Link } from "react-router-dom"
+
+import {withStyles} from "@material-ui/core/styles";
+
+import {Button} from "@material-ui/core"
+
+import GridContainer from "../../../components/Grid/GridContainer.jsx"
+import GridItem from "../../../components/Grid/GridItem.jsx"
+
+import simpleTestsStyle from "../../../assets/jss/material-kit-react/views/landingPageSections/simpleTestsStyle"
 
 class SimpleTestsSection extends React.Component {
     render() {
@@ -42,7 +46,7 @@ class SimpleTestsSection extends React.Component {
                         <Button
                             size="large"
                             color="secondary"
-                            variant="raised"
+                            variant="contained"
                             fullWidth={true}
                             className={classes.bigButton}>
                             Случайный вариант

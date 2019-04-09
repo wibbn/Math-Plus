@@ -1,9 +1,10 @@
 import React from "react";
-import { withStyles, IconButton } from "material-ui";
-// nodejs library to set properties for components
+import { IconButton } from "@material-ui/core";
+import {withStyles} from "@material-ui/core/styles";
+
 import PropTypes from "prop-types";
 
-import iconButtonStyle from "assets/jss/material-kit-react/components/iconButtonStyle.jsx";
+import iconButtonStyle from "../../assets/jss/material-kit-react/components/iconButtonStyle";
 
 function IconCustomButton({ ...props }) {
   const { classes, color, children, className, ...rest } = props;

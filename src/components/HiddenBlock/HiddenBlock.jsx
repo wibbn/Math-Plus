@@ -1,10 +1,10 @@
 import React from "react";
 import {Motion, spring} from "react-motion";
 
-import withStyles from "material-ui/styles/withStyles";
-import Button from "components/CustomButtons/Button.jsx";
+import {withStyles} from "@material-ui/core/styles";
+import {Button} from "@material-ui/core";
 
-import hiddenBlockStyle from "assets/jss/material-kit-react/components/hiddenBlockStyle";
+import hiddenBlockStyle from "../../assets/jss/material-kit-react/components/hiddenBlockStyle";
 
 class HiddenBlock extends React.Component {
     constructor(props) {
@@ -37,7 +37,6 @@ class HiddenBlock extends React.Component {
                             {children}
                         </div>
                         <Button
-                        simple
                         onClick={()=> this.setState({showContent: !this.state.showContent})}
                         >
                             {this.state.showContent ? 'Скрыть информацию' : 'Показать полностью'}

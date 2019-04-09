@@ -2,8 +2,7 @@
 // // // Styles for project
 // #############################
 import Config from '../../config/projectInfo';
-import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
-import React from "react";
+import {createMuiTheme} from "@material-ui/core";
 
 const drawerWidth = 260;
 

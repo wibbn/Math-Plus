@@ -1,11 +1,12 @@
 import React from "react";
-import { withStyles, FormControl, InputLabel, Input } from "material-ui";
+import { FormControl, InputLabel, Input } from "@material-ui/core";
+import {withStyles} from "@material-ui/core/styles";
 import { Clear, Check } from "@material-ui/icons";
 
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import customInputStyle from "assets/jss/material-kit-react/components/customInputStyle.jsx";
+import customInputStyle from "../../assets/jss/material-kit-react/components/customInputStyle";
 
 function CustomInput({ ...props }) {
   const {

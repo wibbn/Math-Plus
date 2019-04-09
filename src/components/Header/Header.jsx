@@ -1,21 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import classNames from "classnames";
-
 import PropTypes from "prop-types";
 
-import withStyles from "@material-ui/core/styles/withStyles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import {withStyles} from "@material-ui/core/styles";
+
+import { AppBar, Toolbar, IconButton, Button, Hidden, Drawer } from "@material-ui/core";
 
 import Menu from "@material-ui/icons/Menu";
 
-import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
+import headerStyle from "../../assets/jss/material-kit-react/components/headerStyle";
 
 class Header extends React.Component {
     constructor(props) {
@@ -64,7 +58,7 @@ class Header extends React.Component {
         });
         const brandComponent = (
             <Link to={"/"}>
-                <Button href="#" className={classes.title}>
+                <Button className={classes.title}>
                     {brand}
                 </Button>
             </Link>

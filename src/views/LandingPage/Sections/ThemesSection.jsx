@@ -1,19 +1,17 @@
 import React from "react";
-
-import withStyles from "material-ui/styles/withStyles";
-
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import RadianStatus from "components/RadianStatus/RadianStatus";
-import HiddenBlock from "components/HiddenBlock/HiddenBlock";
-
-import themesStyle from "assets/jss/material-kit-react/views/landingPageSections/themesStyle";
 import classNames from "classnames";
-
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
+import {withStyles} from "@material-ui/core/styles";
+
+import GridContainer from "../../../components/Grid/GridContainer.jsx";
+import GridItem from "../../../components/Grid/GridItem.jsx";
+import RadianStatus from "../../../components/RadianStatus/RadianStatus";
+import HiddenBlock from "../../../components/HiddenBlock/HiddenBlock";
+
+import themesStyle from "../../../assets/jss/material-kit-react/views/landingPageSections/themesStyle";
 
 class ThemesSection extends React.Component {
     render() {

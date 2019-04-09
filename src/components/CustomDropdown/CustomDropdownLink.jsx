@@ -5,17 +5,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Manager, Target, Popper } from "react-popper";
 
-import withStyles from "material-ui/styles/withStyles";
-import MenuItem from "material-ui/Menu/MenuItem";
-import MenuList from "material-ui/Menu/MenuList";
-import ClickAwayListener from "material-ui/utils/ClickAwayListener";
-import Paper from "material-ui/Paper";
-import Grow from "material-ui/transitions/Grow";
-import Divider from "material-ui/Divider";
+import {withStyles} from "@material-ui/core/styles";
+import { MenuItem, MenuList, ClickAwayListener, Paper, Grow, Divider } from "@material-ui/core";
 
-import Button from "components/CustomButtons/Button.jsx";
+import Button from "../CustomButtons/Button.jsx";
 
-import customDropdownStyle from "assets/jss/material-kit-react/components/customDropdownStyle.jsx";
+import customDropdownStyle from "../../assets/jss/material-kit-react/components/customDropdownStyle";
 
 class CustomDropdownLink extends React.Component {
     constructor(props) {

@@ -4,14 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Manager, Target, Popper } from "react-popper";
 
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Paper from "@material-ui/core/Paper";
-import Grow from "@material-ui/core/Grow";
-import Divider from "@material-ui/core/Divider";
-import Button from "@material-ui/core/Button";
-
+import { MenuItem, MenuList, ClickAwayListener, Paper, Grow, Divider, Button } from "@material-ui/core";
 
 class DropdownLink extends React.Component {
     constructor(props) {

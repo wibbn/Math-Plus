@@ -4,15 +4,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Manager, Target, Popper } from "react-popper";
 
-import withStyles from "@material-ui/core/styles/withStyles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Paper from "@material-ui/core/Paper";
-import Grow from "@material-ui/core/Grow";
-import Divider from "@material-ui/core/Divider";
+import { withStyles } from "@material-ui/core/styles";
+import { MenuItem, MenuList, ClickAwayListener, Paper, Grow, Divider } from "@material-ui/core";
 
-import customDropdownStyle from "assets/jss/material-kit-react/components/customDropdownStyle.jsx";
+import customDropdownStyle from "../../assets/jss/material-kit-react/components/customDropdownStyle";
 
 class UserBatton extends React.Component {
     constructor(props) {

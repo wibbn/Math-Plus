@@ -1,19 +1,19 @@
 import React from 'react';
 import Config from '../../config/projectInfo';
 import classNames from 'classnames';
-
-import withStyles from 'material-ui/styles/withStyles';
-
-import Header from 'components/Header/Header.jsx';
-import HeaderLinks from 'components/Header/HeaderLinks.jsx';
-import Footer from 'components/Footer/Footer.jsx';
-import GridContainer from 'components/Grid/GridContainer.jsx';
-import GridItem from 'components/Grid/GridItem.jsx';
-import CustomInput from 'components/CustomInput/CustomInput.jsx';
-
-import testPageStyle from 'assets/jss/material-kit-react/views/testPage.jsx';
 import {compose} from "redux";
 import firebase from 'firebase/app';
+
+import {withStyles} from "@material-ui/core/styles";
+
+import Header from '../../components/Header/Header';
+import HeaderLinks from '../../components/Header/HeaderLinks';
+import Footer from '../../components/Footer/Footer';
+import GridContainer from '../../components/Grid/GridContainer';
+import GridItem from '../../components/Grid/GridItem';
+import CustomInput from '../../components/CustomInput/CustomInput';
+
+import testPageStyle from '../../assets/jss/material-kit-react/views/testPage';
 
 const dashboardRoutes = [];
 

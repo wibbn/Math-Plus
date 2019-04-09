@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import Button from "@material-ui/core/Button";
-import ListItem from "@material-ui/core/ListItem";
+import {withStyles} from "@material-ui/core/styles";
+
+import { List, Button, ListItem } from "@material-ui/core";
 
 import { ClassOutlined, InboxOutlined, WorkOutline } from "@material-ui/icons";
 
-import DropdownLink from "components/CustomDropdown/Dropdown.jsx";
-import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
+import DropdownLink from "../CustomDropdown/Dropdown";
 
-import AuthBtn from './AuthButtons';
+import headerLinksStyle from "../../assets/jss/material-kit-react/components/headerLinksStyle";
+
+import AuthBtn from "./AuthButtons";
 
 function HeaderLinks({ ...props }) {
     const { classes, signIn } = props;
@@ -23,8 +23,7 @@ function HeaderLinks({ ...props }) {
                 <DropdownLink
                     buttonText="Темы"
                     buttonProps={{
-                        className: classes.navLink,
-                        color: "transparent"
+                        className: classes.navLink
                     }}
                     buttonIcon={ClassOutlined}
                     dropdownList={[

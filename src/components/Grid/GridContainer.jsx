@@ -1,10 +1,8 @@
 import React from "react";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-// material-ui components
-import withStyles from "material-ui/styles/withStyles";
-import Grid from "material-ui/Grid";
+import {withStyles} from "@material-ui/core/styles";
+import {Grid} from "@material-ui/core";
 
 const style = {
   grid: {

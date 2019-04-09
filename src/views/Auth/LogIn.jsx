@@ -1,32 +1,31 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { signIn } from '../../store/actions/auth'
 import Config from '../../config/projectInfo';
 
-import {AlternateEmail, VisibilityOutlined, VisibilityOffOutlined, } from '@material-ui/icons';
+import {AlternateEmail, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
 
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button'
-import withStyles from '@material-ui/core/styles/withStyles';
+import {withStyles} from "@material-ui/core/styles";
 
-import Header from 'components/Header/Header.jsx';
-import HeaderLinks from 'components/Header/HeaderLinks.jsx';
-import Footer from 'components/Footer/Footer.jsx';
-import GridContainer from 'components/Grid/GridContainer.jsx';
-import GridItem from 'components/Grid/GridItem.jsx';
-import IconButton from 'components/CustomButtons/IconButton.jsx';
-import Card from 'components/Card/Card.jsx';
-import CardBody from 'components/Card/CardBody.jsx';
-import CardHeader from 'components/Card/CardHeader.jsx';
-import CardFooter from 'components/Card/CardFooter.jsx';
+import {InputAdornment, TextField, Button} from '@material-ui/core';
 
-import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
+import Header from '../../components/Header/Header';
+import HeaderLinks from '../../components/Header/HeaderLinks';
+import Footer from '../../components/Footer/Footer';
+import GridContainer from '../../components/Grid/GridContainer';
+import GridItem from '../../components/Grid/GridItem';
+import IconButton from '../../components/CustomButtons/IconButton';
+import Card from '../../components/Card/Card';
+import CardBody from '../../components/Card/CardBody';
+import CardHeader from '../../components/Card/CardHeader';
+import CardFooter from '../../components/Card/CardFooter';
 
-import imageSm from 'assets/img/classSm.jpg';
+import loginPageStyle from '../../assets/jss/material-kit-react/views/loginPage';
 
-import {connect} from 'react-redux';
-import {signIn} from '../../store/actions/auth'
-import {compose} from 'redux';
+import imageSm from '../../assets/img/classSm.jpg';
 
 
 class LogIn extends React.Component {
@@ -45,7 +44,6 @@ class LogIn extends React.Component {
     handleClickShowPassword = () => {
         this.setState({showPassword: !this.state.showPassword});
     };
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signIn(this.state);
@@ -131,7 +129,6 @@ class LogIn extends React.Component {
                                                     onChange: this.handleChange,
                                                     endAdornment: (
                                                         <InputAdornment position="end" onClick={this.handleClickShowPassword}>
-                                                            {console.log(this.state)}
                                                             {this.state.showPassword ?
                                                                 <VisibilityOffOutlined className={classes.inputIconsColor} />
                                                                 :
@@ -144,7 +141,7 @@ class LogIn extends React.Component {
                                                 margin="normal"
                                                 variant="outlined"
                                             />
-                                            <button style={{display: 'none'}}></button>
+                                            <button style={{display: 'none'}}/>
                                             {authError ? <p className={classes.authError}>{authError}</p> : null}
                                         </CardBody>
                                         <CardFooter className={classes.cardFooter}>

@@ -1,10 +1,13 @@
 import React from "react";
-import { withStyles, SnackbarContent as Snack, IconButton } from "material-ui";
-import { Close } from "@material-ui/icons";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-import snackbarContentStyle from "assets/jss/material-kit-react/components/snackbarContentStyle.jsx";
+import { SnackbarContent as Snack, IconButton } from "@material-ui/core";
+
+import {withStyles} from "@material-ui/core/styles";
+
+import { Close } from "@material-ui/icons";
+
+import snackbarContentStyle from "../../assets/jss/material-kit-react/components/snackbarContentStyle";
 
 class SnackbarContent extends React.Component {
   constructor(props) {
