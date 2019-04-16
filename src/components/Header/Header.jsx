@@ -13,8 +13,8 @@ import headerStyle from "../../assets/jss/material-kit-react/components/headerSt
 
 class Header extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = { mobileOpen: false }
+        super(props);
+        this.state = { mobileOpen: false };
         this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
         this.headerColorChange = this.headerColorChange.bind(this);
     }
@@ -27,14 +27,14 @@ class Header extends React.Component {
         }
     }
     headerColorChange() {
-        const { classes, color, changeColorOnScroll } = this.props
-        const windowsScrollTop = window.pageYOffset
+        const { classes, color, changeColorOnScroll } = this.props;
+        const windowsScrollTop = window.pageYOffset;
         if (windowsScrollTop > changeColorOnScroll.height) {
-            document.body.getElementsByTagName("header")[0].classList.remove(classes[color])
-            document.body.getElementsByTagName("header")[0].classList.add(classes[changeColorOnScroll.color])
+            document.body.getElementsByTagName("header")[0].classList.remove(classes[color]);
+            document.body.getElementsByTagName("header")[0].classList.add(classes[changeColorOnScroll.color]);
         } else {
-            document.body.getElementsByTagName("header")[0].classList.add(classes[color])
-            document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color])
+            document.body.getElementsByTagName("header")[0].classList.add(classes[color]);
+            document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color]);
         }
     }
     componentWillUnmount() {

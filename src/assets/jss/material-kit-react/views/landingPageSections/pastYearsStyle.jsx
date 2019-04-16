@@ -7,9 +7,6 @@ const pastYearsStyle = {
     section: {
         ...section
     },
-    description: {
-        ...description
-    },
     yearsScroll: {
         border: "1px solid rgba(0, 0, 0, 0.23)",
         borderRadius: "3px",
@@ -23,7 +20,8 @@ const pastYearsStyle = {
         "&::-webkit-scrollbar-thumb": {
             borderRadius: "10px",
             background: makeRGBA(secondaryColor, 0.15)
-        }
+        },
+        scrollbarColor: makeRGBA(secondaryColor, 0.15),
     }
-}
+};
 export default pastYearsStyle

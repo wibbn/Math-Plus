@@ -30,8 +30,6 @@ const themesStyle = {
         color: "#DAA520"
     },
     tableRow: {
-        color: "#999",
-        fontWeight: "400",
         padding: "10px 0",
         borderRadius: "3px"
     },
@@ -54,11 +52,8 @@ const themesStyle = {
     section: {
         ...section
     },
-    description: {
-        ...description
-    },
     hidenBlock: {
         ...hidenBlock
     }
-}
+};
 export default themesStyle

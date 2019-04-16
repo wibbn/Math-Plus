@@ -18,7 +18,7 @@ class SimpleTestsSection extends React.Component {
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={9}>
                         <h2 className={classes.titleContent}>Варианты схожие с реальными</h2>
-                        <h5 className={classes.description}>
+                        <h5>
                             В этом разделе вы можете ознакомиться с экзаменационными вариантами по
                             профильной математике, схожими с реальными. Так же можете пройти случайно
                             сгенерированный вариант теста.

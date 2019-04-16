@@ -16,7 +16,7 @@ class PastYearsSection extends React.Component {
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={9}>
                         <h2 className={classes.titleContent}>Тесты ЕГЭ прошлых лет</h2>
-                        <h5 className={classes.description}>
+                        <h5>
                             Данный раздел предоставляет экзаменационные работы прошедших лет.
                             Здесь можно прорешать реальные варианты, узнать свой результат и
                             вычислить уровень своей подготовки.

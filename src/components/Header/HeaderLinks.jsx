@@ -16,22 +16,23 @@ import AuthBtn from "./AuthButtons";
 function HeaderLinks({ ...props }) {
     const { classes, signIn } = props;
 
+    let themes = [];
+
+    for (let i = 1; i < 20; i++) {
+        themes.push({'name': `Задача ${i}`, 'url': `/topic/${i}`})
+    }
+
     return (
         
         <List className={classes.list}>
             <ListItem className={classes.listItem}>
                 <DropdownLink
-                    buttonText="Темы"
+                    buttonText="Задачи"
                     buttonProps={{
                         className: classes.navLink
                     }}
                     buttonIcon={ClassOutlined}
-                    dropdownList={[
-                        {'name': 'Ссылка 1', 'url': '#'},
-                        {'name': 'Ссылка 2', 'url': '#'},
-                        {'name': 'Ссылка 3', 'url': '#'},
-                        {'name': 'Ссылка 4', 'url': '#'},
-                    ]}
+                    dropdownList={themes}
                 />
             </ListItem>
             <ListItem className={classes.listItem}>

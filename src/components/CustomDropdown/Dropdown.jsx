@@ -1,10 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { withStyles } from "@material-ui/core/styles";
+
 import PropTypes from "prop-types";
 import { Manager, Target, Popper } from "react-popper";
 
 import { MenuItem, MenuList, ClickAwayListener, Paper, Grow, Divider, Button } from "@material-ui/core";
+
+import { makeRGBA, secondaryColor} from "../../assets/jss/material-kit-react.jsx"
+
+const dropdownStyle = {
+    scrollContent: {
+        maxHeight: '200px',
+        overflowY: "auto",
+        "&::-webkit-scrollbar": {
+            backgroundColor: "transparent",
+            width: "8px"
+        },
+        "&::-webkit-scrollbar-thumb": {
+            borderRadius: "10px",
+            background: makeRGBA(secondaryColor, 0.15)
+        }
+    }
+};
+
 
 class DropdownLink extends React.Component {
     constructor(props) {
@@ -22,6 +42,7 @@ class DropdownLink extends React.Component {
         this.setState({ open: false });
     }
     render() {
+        const { classes } = this.props;
         const { open } = this.state;
         const {
             buttonText,
@@ -46,18 +67,7 @@ class DropdownLink extends React.Component {
                     </Button>
                 </Target>
                 <Popper
-                    placement={
-                        dropUp ?
-                            left ?
-                                "top-end"
-                                :
-                                "top-start"
-                            :
-                            left ?
-                                "bottom-end"
-                                :
-                                "bottom-start"
-                    }
+                    placement={ dropUp ? ( left ? "top-end" : "top-start" ) : ( left ? "bottom-end" : "bottom-start" ) }
                     eventsEnabled={open}
                 >
                     <ClickAwayListener onClickAway={this.handleClose}>
@@ -68,7 +78,7 @@ class DropdownLink extends React.Component {
                                 transformOrigin: dropUp ? "0 100% 0" : "0 0 0"
                             }}
                         >
-                            <Paper>
+                            <Paper className={classes.scrollContent}>
                                 <MenuList role="menu">
                                     {dropdownHeader !== undefined ? (
                                         <MenuItem onClick={this.handleClose}>
@@ -112,4 +122,4 @@ DropdownLink.propTypes = {
     left: PropTypes.bool
 };
 
-export default DropdownLink;
+export default withStyles(dropdownStyle)(DropdownLink);

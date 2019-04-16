@@ -26,7 +26,7 @@ const container = {
     "@media (min-width: 768px)": {
         maxWidth: "720px"
     },
-    "@media (min-width: 992px)": {
+    "@media (min-width: 960px)": {
         maxWidth: "960px"
     },
     "@media (min-width: 1200px)": {
@@ -52,7 +52,7 @@ const card = {
 
 const defaultFont = {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    fontWeight: "300",
+    fontWeight: "400",
     lineHeight: "1.5em"
 };
 
@@ -205,7 +205,8 @@ const cardSubtitle = {
 };
 
 const section = {
-    padding: "50px 20px"
+    padding: "50px 20px 20px 20px",
+    color: "#999",
 };
 
 const hidenBlock = {

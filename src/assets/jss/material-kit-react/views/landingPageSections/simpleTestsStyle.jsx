@@ -7,9 +7,9 @@ const simpleTestsStyle = {
     section: {
         ...section
     },
-    description: {
-        color: "#999"
-    },
+    // description: {
+    //     color: "#999"
+    // },
     bigButton: {
         marginTop: "25px"
     },

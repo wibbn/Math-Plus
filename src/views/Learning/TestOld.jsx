@@ -17,7 +17,7 @@ import testPageStyle from '../../assets/jss/material-kit-react/views/testPage';
 
 const dashboardRoutes = [];
 
-class Test extends React.Component {
+class TestOld extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -116,4 +116,4 @@ class Test extends React.Component {
 
 export default compose(
     withStyles(testPageStyle)
-)(Test)
+)(TestOld)

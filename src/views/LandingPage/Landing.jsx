@@ -63,7 +63,7 @@ class Landing extends React.Component {
                     </GridContainer>
                     </div>
                 </Parallax>
-                <div className={classNames(classes.main, classes.mainRaised)}>
+                <div className={classes.main}>
                     <div className={classes.container}>
                         <SimpleTestsSection/>
                         <PastYearsSection/>

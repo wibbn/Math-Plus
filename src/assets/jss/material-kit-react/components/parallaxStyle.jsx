@@ -9,7 +9,10 @@ const parallaxStyle = {
     padding: "0",
     border: "0",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    "@media (max-width: 960px)": {
+      height: "100vh"
+    },
   },
   filter: {
     "&:before": {
@@ -24,8 +27,17 @@ const parallaxStyle = {
       content: "''"
     }
   },
-  small: {
-    height: "380px"
+  sm: {
+    height: "70vh",
+    "@media (max-width: 959.99px)": {
+      height: "100vh"
+    },
+  },
+  xs: {
+    height: "50vh",
+    "@media (max-width: 959.99px)": {
+      height: "100vh"
+    },
   }
 };
 
