@@ -19,7 +19,7 @@ const buttonStyle = {
         minHeight: "auto",
         minWidth: "auto",
         backgroundColor: grayColor,
-        color: "#FFFFFF",
+        color: "#fff",
         boxShadow:
             "0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12)",
         border: "none",
@@ -41,7 +41,7 @@ const buttonStyle = {
         touchAction: "manipulation",
         cursor: "pointer",
         "&:hover,&:focus": {
-            color: "#FFFFFF",
+            color: "#fff",
             backgroundColor: grayColor,
             boxShadow:
                 "0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2)"
@@ -183,8 +183,8 @@ const buttonStyle = {
     }
     },
     simple: {
-    "&,&:focus,&:hover": {
-      color: "#FFFFFF",
+    "&, &:focus, &:hover": {
+      color: "#555",
       background: "transparent",
       boxShadow: "none"
     },
@@ -329,8 +329,8 @@ const buttonStyle = {
         borderRadius: "30px"
     },
     disabled: {
-    opacity: "0.65",
-    pointerEvents: "none"
+        opacity: "0.65",
+        pointerEvents: "none"
     },
     lg: {
         padding: "1.125rem 2.25rem",

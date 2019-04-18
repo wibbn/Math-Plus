@@ -1,26 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import classNames from "classnames";
-
 import PropTypes from "prop-types";
 
-import withStyles from "material-ui/styles/withStyles";
-import AppBar from "material-ui/AppBar";
-import Toolbar from "material-ui/Toolbar";
-import IconButton from "material-ui/IconButton";
-import Button from "material-ui/Button";
-import Hidden from "material-ui/Hidden";
-import Drawer from "material-ui/Drawer";
+import {withStyles} from "@material-ui/core/styles";
+
+import { AppBar, Toolbar, IconButton, Button, Hidden, Drawer } from "@material-ui/core";
 
 import Menu from "@material-ui/icons/Menu";
 
-import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
+import headerStyle from "../../assets/jss/material-kit-react/components/headerStyle";
 
 class Header extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = { mobileOpen: false }
+        super(props);
+        this.state = { mobileOpen: false };
         this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
         this.headerColorChange = this.headerColorChange.bind(this);
     }
@@ -33,14 +27,14 @@ class Header extends React.Component {
         }
     }
     headerColorChange() {
-        const { classes, color, changeColorOnScroll } = this.props
-        const windowsScrollTop = window.pageYOffset
+        const { classes, color, changeColorOnScroll } = this.props;
+        const windowsScrollTop = window.pageYOffset;
         if (windowsScrollTop > changeColorOnScroll.height) {
-            document.body.getElementsByTagName("header")[0].classList.remove(classes[color])
-            document.body.getElementsByTagName("header")[0].classList.add(classes[changeColorOnScroll.color])
+            document.body.getElementsByTagName("header")[0].classList.remove(classes[color]);
+            document.body.getElementsByTagName("header")[0].classList.add(classes[changeColorOnScroll.color]);
         } else {
-            document.body.getElementsByTagName("header")[0].classList.add(classes[color])
-            document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color])
+            document.body.getElementsByTagName("header")[0].classList.add(classes[color]);
+            document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color]);
         }
     }
     componentWillUnmount() {
@@ -55,20 +49,20 @@ class Header extends React.Component {
             brand,
             fixed,
             absolute
-        } = this.props
+        } = this.props;
         const appBarClasses = classNames({
             [classes.appBar]: true,
             [classes[color]]: color,
             [classes.absolute]: absolute,
             [classes.fixed]: fixed
-        })
+        });
         const brandComponent = (
             <Link to={"/"}>
-                <Button href="#" className={classes.title}>
+                <Button className={classes.title}>
                     {brand}
                 </Button>
             </Link>
-        )
+        );
         return (
             <AppBar className={appBarClasses}>
                 <Toolbar className={classes.container}>

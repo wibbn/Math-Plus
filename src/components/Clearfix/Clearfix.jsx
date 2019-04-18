@@ -1,9 +1,7 @@
 import React from "react";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-// mterial-ui components
-import withStyles from "material-ui/styles/withStyles";
+import {withStyles} from "@material-ui/core/styles";
 
 const style = {
   clearfix: {

@@ -4,7 +4,6 @@
 
 import {
   container,
-  defaultFont,
   primaryColor,
   infoColor,
   successColor,
@@ -53,15 +52,11 @@ const headerStyle = {
     flex: 1
   },
   title: {
-    ...defaultFont,
-    lineHeight: "30px",
-    fontSize: "18px",
-    borderRadius: "3px",
-    textTransform: "none",
+    lineHeight: "34px",
     color: "inherit",
     "&:hover,&:focus": {
       color: "inherit",
-      background: "transparent"
+      background: "rgba(200, 200, 200, 0.2)"
     }
   },
   appResponsive: {

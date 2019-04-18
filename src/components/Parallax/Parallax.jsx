@@ -1,29 +1,25 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
-// material-ui components
-import withStyles from "material-ui/styles/withStyles";
 
-// core components
-import parallaxStyle from "assets/jss/material-kit-react/components/parallaxStyle.jsx";
+import {withStyles} from "@material-ui/core/styles";
 
-const num = 3
+import parallaxStyle from "../../assets/jss/material-kit-react/components/parallaxStyle";
+
+const scrollSpeed = 3;
 
 class Parallax extends React.Component {
   constructor(props) {
     super(props);
-    var windowScrollTop = window.pageYOffset / num;
     this.state = {
-      transform: "translate3d(0," + windowScrollTop + "px,0)"
+      transform: "translate3d(0," + window.pageYOffset / scrollSpeed + "px,0)"
     };
     this.resetTransform = this.resetTransform.bind(this);
   }
+
   componentDidMount() {
-    var windowScrollTop = window.pageYOffset / num;
     this.setState({
-      transform: "translate3d(0," + windowScrollTop + "px,0)"
+      transform: "translate3d(0," + window.pageYOffset / scrollSpeed + "px,0)"
     });
     window.addEventListener("scroll", this.resetTransform);
   }
@@ -31,11 +27,11 @@ class Parallax extends React.Component {
     window.removeEventListener("scroll", this.resetTransform);
   }
   resetTransform() {
-    var windowScrollTop = window.pageYOffset / num;
     this.setState({
-      transform: "translate3d(0," + windowScrollTop + "px,0)"
+      transform: "translate3d(0," + window.pageYOffset / scrollSpeed + "px,0)"
     });
   }
+
   render() {
     const {
       classes,
@@ -44,12 +40,14 @@ class Parallax extends React.Component {
       children,
       style,
       image,
-      small
+      sm,
+      xs
     } = this.props;
     const parallaxClasses = classNames({
       [classes.parallax]: true,
       [classes.filter]: filter,
-      [classes.small]: small,
+      [classes.sm]: sm,
+      [classes.xs]: xs,
       [className]: className !== undefined
     });
     return (
@@ -72,6 +70,8 @@ Parallax.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   filter: PropTypes.bool,
+  sm: PropTypes.bool,
+  xs: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.string,
   image: PropTypes.string

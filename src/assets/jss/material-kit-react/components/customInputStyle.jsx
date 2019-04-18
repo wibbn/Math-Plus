@@ -3,7 +3,6 @@
 // #############################
 
 import {
-  primaryColor,
   secondaryColor,
   dangerColor,
   successColor,

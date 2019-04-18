@@ -1,19 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router";
-import indexRoutes from "routes/index.jsx";
 
 import "assets/scss/material-kit-react.css";
 import "assets/scss/self_stile.css";
 
-var hist = createBrowserHistory();
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import { composeWithDevTools} from 'redux-devtools-extension';
+import fbConfig from './config/firebase'
 
-ReactDOM.render(
-    <Router history={hist}>
-     <Switch>
-         {indexRoutes.map((prop, key) => <Route path={prop.path} key={key} component={prop.component} />)}
-     </Switch>
-    </Router>,
-    document.getElementById("root")
-);
+import rootReducer from './store/reducers/root';
+import App from "./App";
+
+const store = createStore(rootReducer, composeWithDevTools(compose(
+    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+    reactReduxFirebase(fbConfig, {userProfile: 'users', useFirestoreForProfile: true, attachAuthIsReady: true}),
+    reduxFirestore(fbConfig)
+)));
+
+
+// для быстрого добавления в firestore
+//const lol = [];
+//lol.map(x => getFirestore().collection('tasks').add(x));
+
+store.firebaseAuthIsReady.then(() => {
+    ReactDOM.render(
+        <Provider store={store}>
+            <App/>
+        </Provider>,
+        document.getElementById("root")
+    );
+});

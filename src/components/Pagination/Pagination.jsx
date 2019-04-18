@@ -1,14 +1,11 @@
 import React from "react";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
 import classNames from "classnames";
 
-// material-ui components
-import withStyles from "material-ui/styles/withStyles";
-import Button from "material-ui/Button";
+import {withStyles} from "@material-ui/core/styles";
+import {Button} from "@material-ui/core";
 
-import paginationStyle from "assets/jss/material-kit-react/components/paginationStyle.jsx";
+import paginationStyle from "../../assets/jss/material-kit-react/components/paginationStyle";
 
 function Pagination({ ...props }) {
   const { classes, pages, color } = props;

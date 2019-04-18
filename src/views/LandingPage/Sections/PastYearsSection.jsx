@@ -1,20 +1,22 @@
 import React from "react"
-import withStyles from "material-ui/styles/withStyles"
-import GridContainer from "components/Grid/GridContainer.jsx"
-import GridItem from "components/Grid/GridItem.jsx"
-import Button from "components/CustomButtons/Button"
-import pastYearsStyle from "assets/jss/material-kit-react/views/landingPageSections/pastYearsStyle"
 
+import {withStyles} from "@material-ui/core/styles";
+
+import {Button} from '@material-ui/core'
+
+import GridContainer from "../../../components/Grid/GridContainer"
+import GridItem from "../../../components/Grid/GridItem"
+import pastYearsStyle from "../../../assets/jss/material-kit-react/views/landingPageSections/pastYearsStyle"
 
 class PastYearsSection extends React.Component {
     render() {
-        const {classes} = this.props
+        const {classes} = this.props;
         return (
             <div className={classes.section}>
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={9}>
                         <h2 className={classes.titleContent}>Тесты ЕГЭ прошлых лет</h2>
-                        <h5 className={classes.description}>
+                        <h5>
                             Данный раздел предоставляет экзаменационные работы прошедших лет.
                             Здесь можно прорешать реальные варианты, узнать свой результат и
                             вычислить уровень своей подготовки.
@@ -27,9 +29,9 @@ class PastYearsSection extends React.Component {
                             {[...Array(12)].map((x, i) =>
                                 <Button
                                     key = {i}
-                                    size="lg"
-                                    simple
-                                    color="primary">
+                                    size="large"
+                                    color="primary"
+                                >
                                     {2018-i}
                                 </Button>
                             )}

@@ -42,36 +42,18 @@ const headerLinksStyle = theme => ({
   },
   navLink: {
     color: "inherit",
-    position: "relative",
-    padding: "0.9375rem",
-    fontWeight: "400",
-    fontSize: "12px",
-    textTransform: "uppercase",
-    borderRadius: "3px",
-    lineHeight: "20px",
-    textDecoration: "none",
-    margin: "0px",
+    lineHeight: "34px",
     display: "inline-flex",
     "&:hover,&:focus": {
       color: "inherit",
       background: "rgba(200, 200, 200, 0.2)"
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "calc(100% - 30px)",
-      marginLeft: "15px",
-      marginBottom: "8px",
-      marginTop: "8px",
-      textAlign: "left",
-      "& > span:first-child": {
-        justifyContent: "flex-start"
-      }
     }
   },
   notificationNavLink: {
     color: "inherit",
     padding: "0.9375rem",
     fontWeight: "400",
-    fontSize: "12px",
+    fontSize: "34px",
     textTransform: "uppercase",
     lineHeight: "20px",
     textDecoration: "none",
@@ -80,26 +62,8 @@ const headerLinksStyle = theme => ({
     top: "4px"
   },
   registerNavLink: {
-    position: "relative",
-    fontWeight: "400",
-    fontSize: "12px",
-    textTransform: "uppercase",
-    lineHeight: "20px",
-    textDecoration: "none",
-    margin: "0px",
-    display: "inline-flex",
-    padding: "0.9375rem",
-    borderRadius: "3px",
-    [theme.breakpoints.down("sm")]: {
-        width: "calc(100% - 30px)",
-        marginLeft: "15px",
-        marginBottom: "8px",
-        marginTop: "8px",
-        textAlign: "left",
-        "& > span:first-child": {
-            justifyContent: "flex-start"
-        }
-    }
+    lineHeight: "34px",
+    display: "inline-flex"
   },
   navLinkActive: {
     color: "inherit",
