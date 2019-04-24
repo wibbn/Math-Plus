@@ -1,7 +1,5 @@
 import React from "react"
-import Config from '../../config/projectInfo';
-
-import classNames from "classnames"
+import Config from '../../config/projectInfo'
 
 import Button from '@material-ui/core/Button'
 
@@ -46,7 +44,8 @@ class Landing extends React.Component {
                         <GridItem xs={12} sm={12} md={6}>
                             <h1 className={classes.title}>{Config.projectName}</h1>
                             <h4>
-                                Здесь будет какая-нибудь инфа о моем проекте. Снизу прикреплен трейлер проекта. На этом сайте можно подготовиться к ЕГЭ и прорешать экзаменационные варианты
+                                Данный сайт является частью школьного проекта по информатике. Здесь вы можете получить новые знания или узнать уровень своей подготовки.
+                                Сайт позволяет проходить тестирование на различных задачах и изучать подготовленный материал.
                             </h4>
                             <br />
                             <MuiThemeProvider theme={colorToPrimary('#e53935')}>
