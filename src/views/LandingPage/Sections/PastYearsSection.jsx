@@ -7,6 +7,7 @@ import {Button} from '@material-ui/core'
 import GridContainer from "../../../components/Grid/GridContainer"
 import GridItem from "../../../components/Grid/GridItem"
 import pastYearsStyle from "../../../assets/jss/material-kit-react/views/landingPageSections/pastYearsStyle"
+import {Link} from "react-router-dom";
 
 class PastYearsSection extends React.Component {
     render() {
@@ -17,9 +18,9 @@ class PastYearsSection extends React.Component {
                     <GridItem xs={12} sm={12} md={9}>
                         <h2 className={classes.titleContent}>Тесты ЕГЭ прошлых лет</h2>
                         <h5>
-                            Данный раздел предоставляет экзаменационные работы прошедших лет.
-                            Здесь можно прорешать реальные варианты, узнать свой результат и
-                            вычислить уровень своей подготовки.
+                            Данный раздел предоставляет экзаменационные работы прошедших экзаменов.
+                            Здесь можно прорешать реальные варианты, предложенные ученикам Владимирской области,
+                            узнать свой результат и вычислить уровень своей подготовки.
                         </h5>
                     </GridItem>
                 </GridContainer>
@@ -27,13 +28,15 @@ class PastYearsSection extends React.Component {
                     <GridItem>
                         <div className={classes.yearsScroll}>
                             {[...Array(12)].map((x, i) =>
-                                <Button
-                                    key = {i}
-                                    size="large"
-                                    color="primary"
-                                >
-                                    {2018-i}
-                                </Button>
+                                <Link to={`test/${2018-i}`}>
+                                    <Button
+                                        key = {i}
+                                        size="large"
+                                        color="primary"
+                                    >
+                                        {2018-i}
+                                    </Button>
+                                </Link>
                             )}
                         </div>
                     </GridItem>

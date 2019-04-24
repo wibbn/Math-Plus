@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import {withStyles} from "@material-ui/core/styles";
 
-import { List, Button, ListItem } from "@material-ui/core";
+import { List, ListItem } from "@material-ui/core";
 
-import { ClassOutlined, InboxOutlined, WorkOutline } from "@material-ui/icons";
+import { ClassOutlined } from "@material-ui/icons";
 
 import DropdownLink from "../CustomDropdown/Dropdown";
 
@@ -27,7 +26,7 @@ function HeaderLinks({ ...props }) {
         <List className={classes.list}>
             <ListItem className={classes.listItem}>
                 <DropdownLink
-                    buttonText="Задачи"
+                    buttonText="Подготовка по темам"
                     buttonProps={{
                         className: classes.navLink
                     }}
@@ -35,22 +34,14 @@ function HeaderLinks({ ...props }) {
                     dropdownList={themes}
                 />
             </ListItem>
-            <ListItem className={classes.listItem}>
-                <Link to={"#"}>
-                    <Button
-                        className={classes.navLink}>
-                        <InboxOutlined className={classes.icons} /> Варианты
-                    </Button>
-                </Link>
-            </ListItem>
-            <ListItem className={classes.listItem}>
-                <Link to={"#"}>
-                    <Button
-                        className={classes.navLink}>
-                        <WorkOutline className={classes.icons} /> Материалы
-                    </Button>
-                </Link>
-            </ListItem>
+            {/*<ListItem className={classes.listItem}>*/}
+                {/*<Link to={"#"}>*/}
+                    {/*<Button*/}
+                        {/*className={classes.navLink}>*/}
+                        {/*<InboxOutlined className={classes.icons} /> Варианты*/}
+                    {/*</Button>*/}
+                {/*</Link>*/}
+            {/*</ListItem>*/}
             <ListItem className={classes.listItem}>
                 <AuthBtn signIn = {signIn} />
             </ListItem>

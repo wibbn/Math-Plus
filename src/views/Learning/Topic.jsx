@@ -4,11 +4,9 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
-import classNames from "classnames"
+import {Button, Paper, TextField} from '@material-ui/core'
 
-import {Button, Paper} from '@material-ui/core'
-
-import { MuiThemeProvider, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
@@ -18,25 +16,39 @@ import HeaderLinks from "../../components/Header/HeaderLinks"
 import Parallax from "../../components/Parallax/Parallax"
 
 import topicPageStyle from "../../assets/jss/material-kit-react/views/topicPage"
+import Link from "react-router-dom/es/Link";
 
 const dashboardRoutes = [];
 
 class Topic extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 5
+        };
+    };
 
     componentDidMount() {
         window.scrollTo(0, 0);
     }
 
+    handleChange = (e) => {
+        this.setState({[e.target.id]: Number(e.target.value)});
+    };
+
     render() {
         const { classes, themes, ...rest } = this.props;
         const id = Number(this.props.match.params.id);
 
-        let theme = {};
+        let num = [];
+        for (let i = 1; i < 20; i++) {
+            num.push(i);
+        }
 
+        let theme = {};
         themes && themes.map(x => {
             if (x.id === id) {
                 theme = x;
-                console.log(theme.sample.ans);
             }
         });
 
@@ -65,7 +77,7 @@ class Topic extends React.Component {
                                 {id}. {theme.name}
                             </h2>
                             <h4>
-                                Данный тип задач нацелен на выявление ваших возможностей по работе с графиками и графическими пердставлениями. Сохраняйте спокойствие, я не знаю что писать.
+                                {theme.desc}
                             </h4>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={7} className={classes.youTube}>
@@ -82,7 +94,10 @@ class Topic extends React.Component {
                         <div className={classes.section}>
                             <h2 className={classes.titleContent}>Классификация</h2>
                             <h5>
-                                {theme.class ? 'Данное задание имеет несколько видов. Обычно его можно отнести к следующим категориям:' : 'Простите, но эта задача имеет только один вид.'}
+                                {theme.class ?
+                                    'Данное задание имеет несколько видов. Обычно его можно отнести к следующим категориям:'
+                                    :
+                                    'Простите, но эта задача имеет только один вид.'}
                                 {theme.class ?
                                     <ul>
                                         {theme.class && theme.class.map(x => <li>{x}</li>)}
@@ -122,12 +137,32 @@ class Topic extends React.Component {
                             <h5>
                                 Предлагаю вашему вниманию следующее решение задачи из примера
                             </h5>
+                            <h5>
+                                {theme.solution}
+                            </h5>
                         </div>
                         <div className={classes.section}>
                             <h2 className={classes.titleContent}>Пройти тесты</h2>
                             <h5>
                                 Можете протестировать свои знания по данной теме собрав тест из данных задач
                             </h5>
+                            <div style={{display: 'flex', alignItems: 'center', marginTop: '30px'}}>
+                                <TextField
+                                    style={{margin: '0 30px'}}
+                                    label="Количество задач"
+                                    type='text'
+                                    id='count'
+                                    InputProps={{
+                                        onChange: this.handleChange
+                                    }}
+                                    variant="outlined"
+                                />
+                                <Link to={`/learn/${id}/${this.state.count}/${theme.name}`}>
+                                    <Button color='secondary' size='large' onClick={this.handleSubmit} variant='raised'>
+                                        Собрать тест
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

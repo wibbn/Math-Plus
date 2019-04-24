@@ -16,11 +16,16 @@ const testPageStyle = {
     main: {
         background: "#FFFFFF",
         paddingTop: "25px",
-        margin: "-60px 30px 0px",
         borderRadius: "6px",
         boxShadow: "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
         position: "relative",
         zIndex: "3"
+    },
+    mainFirst: {
+        margin: "-60px 30px 0px"
+    },
+    mainSecond: {
+        margin: "40px 30px 0px"
     },
     task: {
         padding: '0 0 30px 0'
@@ -40,6 +45,47 @@ const testPageStyle = {
             display: 'block'
         }
     },
+    submit: {
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '30px 0'
+    },
+    flexCell: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    numberName: {
+        verticalAlign: "middle",
+        fontWeight: "400"
+    },
+    tableRow: {
+        padding: "5px 0",
+        borderRadius: "3px"
+    },
+    geg: {
+        willChange: "transform",
+        transition:
+            "box-shadow 0.13s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        touchAction: "manipulation",
+        cursor: "pointer",
+        "&:hover,&:focus": {
+            background: "rgba(200, 200, 200, 0.2)"
+        },
+        "&:active": {
+            background: "rgba(200, 200, 200, 0.5)"
+        }
+    },
+    progressBox: {
+        backgroundColor:'#f4f4f4',
+        borderRadius: '50%',
+        display: 'inline-block'
+    },
+    progressCell: {
+        display: "flex",
+        justifyContent: "center",
+        textAlign: 'center'
+    }
 };
 
 export default testPageStyle;

@@ -19,9 +19,9 @@ class SimpleTestsSection extends React.Component {
                     <GridItem xs={12} sm={12} md={9}>
                         <h2 className={classes.titleContent}>Варианты схожие с реальными</h2>
                         <h5>
-                            В этом разделе вы можете ознакомиться с экзаменационными вариантами по
-                            профильной математике, схожими с реальными. Так же можете пройти случайно
-                            сгенерированный вариант теста.
+                            В этом разделе вы можете найти с экзаменационные варианты по
+                            профильной математике, схожие с реальными. Варианты составлены подобно настоящим.
+                            Это поможет вам выяснить уровень своей подготовки и прокачать свои навыки.
                         </h5>
                     </GridItem>
                 </GridContainer>
@@ -40,18 +40,6 @@ class SimpleTestsSection extends React.Component {
                             </Link>
                         </GridItem>
                     )}
-                </GridContainer>
-                <GridContainer>
-                    <GridItem xs={12} sm={12} md={4}>
-                        <Button
-                            size="large"
-                            color="secondary"
-                            variant="contained"
-                            fullWidth={true}
-                            className={classes.bigButton}>
-                            Случайный вариант
-                        </Button>
-                    </GridItem>
                 </GridContainer>
             </div>
         )

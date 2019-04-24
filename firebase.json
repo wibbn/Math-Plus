@@ -1,11 +1,4 @@
 {
-//  "firestore": {
-//    "rules": "firefiles/firestore.rules",
-//    "indexes": "firefiles/firestore.indexes.json"
-//  },
-//  "storage": {
-//    "rules": "firefiles/storage.rules"
-//  },
   "hosting": {
     "public": "build",
     "ignore": [

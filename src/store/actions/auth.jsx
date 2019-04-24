@@ -13,6 +13,7 @@ export const signIn = (creds) => {
         });
     }
 };
+
 export const signOut = () => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
